@@ -1,0 +1,14 @@
+
+{% if options contains "lazy" %}
+  {% assign class = "lazy" %}
+{% endif %}
+
+{% if eleventy.environment == 'development' %}
+
+<picture>
+  <img class="{{ class }}" src="https://res.cloudinary.com/dxwysug5l/image/fetch/c_crop,w_1600,h_900/http://lab.packos.com/respimg/img/{{ url }}">
+</picture>
+{% else %}
+<p>[image {{ url }} (prod)]</p>
+{% endif %}
+

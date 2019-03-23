@@ -1,0 +1,14 @@
+{
+    "name": "pekkos.com",
+    "version": "0.1.0",
+    "description": "Build script for CSS, JS and HTML patterns",
+    "repository": "https://github.com/pekkos/pekkos.com",
+    "license": "UNLICENSED",
+    "devDependencies": {
+        "@11ty/eleventy": "^0.7.1",
+        "gulp": "^3.9.1",
+        "gulp-shell": "^0.6.5",
+        "run-sequence": "^2.2.1"
+    },
+    "dependencies": {}
+}

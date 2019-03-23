@@ -1,0 +1,40 @@
+<!-- Third party scripts starts here -->
+
+{% if jekyll.environment == 'production' %}
+
+{% include js-google-analytics.html %}
+
+{% include js-mouseflow.html %}
+
+{% else %}
+
+<small style="background-color: #ff9; position: fixed; bottom: 0;">&lt;Development&gt;</small>
+<script src="/assets/js/tota11y.min.js"></script>
+
+{% endif %}
+
+<script src="/assets/js/offline.js"></script>
+
+<!-- comments count -->
+<script id="dsq-count-scr" src="//pekkos.disqus.com/count.js" async></script>
+
+
+<!-- End of third party scripts -->
+
+<script>
+  function logTimes(message) {
+    performance.mark(message); // this one is for WebPageTest
+    console.timeStamp(message); // this is for the Performance tab in Chrome DevTools
+    console.info(message, performance.now()); // this is for the console, duh
+
+    // this here is for Google Analytics
+    ga('send', {
+      hitType: 'timing',
+      timingCategory: 'Performance',
+      timingVar: message,
+      timingValue: performance.now(),
+    });
+  }
+
+  logTimes('The page is really ready');
+</script>
