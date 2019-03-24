@@ -1,0 +1,24 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+  - all
+  - nav
+  - post
+  - posts
+layout: default
+renderData:
+  title: Tagged “{{ tag }}”
+permalink: /tag/{{ tag }}/
+---
+<h1>Tagged “{{ tag }}”</h1>
+
+{% assign postslist = collections[tag] %}
+
+<ol>
+  {% for post in postslist %}
+  <li>{{ post.data.title }}</li>
+  {% endfor %}
+</ol>
