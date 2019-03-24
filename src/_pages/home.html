@@ -22,9 +22,10 @@ pagination:
           {{ post.date | date: '%B %d, %Y' }}
         </span>
       </p>
-      <p>{{ post.data.abstract }}</p>
+      <p>{% excerpt post %}</p>
     </div>
     {% endfor %}
   </div>
 </div>
+
 
