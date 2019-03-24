@@ -14,9 +14,6 @@ permalink: "/blog/{{ title | slug }}/"
 ---
 Reading code isn't always that easy, which is why syntax highlighting is a good idea.
 
-{% include img with url:'brooklyn.jpeg' %}
-{% include img with url:'rock.jpeg', options:'lazy' %}
-
 As stated on [GitHub Pages](https://help.github.com/articles/using-syntax-highlighting-on-github-pages/), you can use [Rouge](http://rouge.jneen.net/) out of the box with Jekyll. In Jekyll 3 and above, [Rouge is the default syntax highlighter](http://jekyllrb.com/docs/templates/#code-snippet-highlighting) and works for 60+ languages.
 
 In fact, [GitHub Pages *only* supports](https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0) Rouge as syntax highlighter. Traditionally, highlighting in Jekyll was implemented using the <code>&#123;% highlight %&#125;</code> Liquid tag, but now pure Markdown should be used instead.
