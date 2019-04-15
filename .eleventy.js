@@ -7,11 +7,17 @@ module.exports = function (eleventyConfig) {
   // Use the default sorting algorithm in reverse (descending dir, date, filename)
   // Note that using a template engine’s `reverse` filter might be easier here
   eleventyConfig.addCollection("post", function (collection) {
+    // return collection.getAllSorted().reverse();
+    return collection.getFilteredByGlob('./src/_posts/*.md').reverse();
+  });
+
+  eleventyConfig.addCollection("page", function (collection) {
     return collection.getAllSorted().reverse();
   });
 
   // Defines shortcode for generating post excerpts
   eleventyConfig.addShortcode('excerpt', post => extractExcerpt(post));
+
 
 
   return {
@@ -21,6 +27,7 @@ module.exports = function (eleventyConfig) {
     }
   }
 };
+
 
 
 
