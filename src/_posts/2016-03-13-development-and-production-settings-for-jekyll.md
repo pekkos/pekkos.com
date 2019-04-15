@@ -4,7 +4,6 @@ title: Development and production settings for Jekyll
 date: 2016-03-13
 category: Blog
 tags:
- - post
  - jekyll
 comments: true
 redirect_from:

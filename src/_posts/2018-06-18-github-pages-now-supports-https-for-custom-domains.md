@@ -4,7 +4,6 @@ title: Github now supports HTTPS for custom domains
 date: 2018-06-18
 category: Blog
 tags:
- - post
  - https
 comments: true
 permalink: "/blog/{{ title | slug }}/"

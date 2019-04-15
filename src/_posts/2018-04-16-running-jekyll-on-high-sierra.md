@@ -4,7 +4,6 @@ title: Running Jekyll on MacOS High Sierra
 category: Blog
 date: 2018-04-16
 tags:
- - post
  - jekyll
 comments: true
 permalink: "/blog/{{ title | slug }}/"

@@ -4,7 +4,6 @@ title: Tags with Jekyll and GitHub Pages
 category: Blog
 date: 2016-03-15
 tags:
- - post
  - jekyll
 comments: true
 redirect_from:

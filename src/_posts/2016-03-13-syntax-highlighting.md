@@ -4,7 +4,6 @@ title: Syntax highlighting for Jekyll
 category: Blog
 date: 2016-03-13
 tags:
- - post
  - jekyll
  - code
 comments: true

@@ -4,7 +4,6 @@ title: Migrating to HTTPS
 category: Blog
 date: 2018-05-15
 tags:
- - post
  - https
 comments: true
 permalink: "/blog/{{ title | slug }}/"

@@ -9,7 +9,6 @@ redirect_from:
  - /blog/2016/02/21/birth-of-a-blog.html
 permalink: "/blog/{{ title | slug }}/"
 tags:
- - post
 
 ---
 Four years ago, around this time of the year, I acquired this domain after keeping watch for a few years to see if it would be available. I installed a [Wordpress](https://wordpress.org/ "Wordpress CMS") site, as I had managed a few Wordpress sites before.
