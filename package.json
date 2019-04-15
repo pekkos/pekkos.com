@@ -5,8 +5,9 @@
     "repository": "https://github.com/pekkos/pekkos.com",
     "license": "UNLICENSED",
     "devDependencies": {
-        "@11ty/eleventy": "^0.7.1",
+        "@11ty/eleventy": "^0.8.0",
         "gulp": "^3.9.1",
+        "gulp-copy": "^4.0.1",
         "gulp-shell": "^0.6.5",
         "run-sequence": "^2.2.1"
     },

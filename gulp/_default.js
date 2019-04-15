@@ -12,7 +12,7 @@
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
 const shell = require('gulp-shell')
-
+const copy = require('gulp-copy');
 
 
 
@@ -46,6 +46,51 @@ module.exports = function () {
     gulp.task('done', function () {
         console.log('All tasks done. Now what?');
     });
+
+
+    gulp.task('copydevscripts', function () {
+      return gulp.src('./src/_js-includes/dev/scripts.html')
+        .pipe(copy('./src/_includes/', { prefix: 4 }))
+        .on('end', function () {
+          console.log('correct scripts hopefully copied :)')
+        });
+    });
+
+    gulp.task('copyassets', function () {
+      return gulp.src('./src/_includes/assets/**/*')
+        .pipe(copy('./_site/assets/', { prefix: 3 }))
+        .on('end', function () {
+          console.log('assets scripts hopefully copied :)')
+        });
+    });
+
+    gulp.task('copyprodscripts', function () {
+      return gulp.src('./src/_js-includes/prod/scripts.html')
+        .pipe(copy('./src/_includes/', { prefix: 4 }))
+        .on('end', function () {
+          console.log('correct scripts hopefully copied :)')
+        });
+    });
+
+    gulp.task('eleventy', shell.task('eleventy'));
+
+    gulp.task('elevendev', function (callback) {
+      runSequence(
+        'copydevscripts',
+        'eleventy',
+        'copyassets',
+        callback
+      )
+    });
+
+    gulp.task('elevenprod', function (callback) {
+      runSequence(
+        'copyprodscripts',
+        'eleventy',
+        callback
+      )
+    });
+
 
 };
 
