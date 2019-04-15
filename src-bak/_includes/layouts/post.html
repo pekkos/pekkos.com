@@ -1,6 +1,15 @@
 ---
 layout: default
 ---
+
+
+
+    {% for pageitem in collections.page %}
+    {% if page.url == pageitem.url %}
+    <p>{{ pageitem.data.abstract }}</p>
+    {% endif %}
+    {% endfor %}
+
 <article class="container h-entry">
     <h1 class="spacing p-name">{{ title }}</h1>
 
