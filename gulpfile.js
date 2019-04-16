@@ -34,6 +34,11 @@ https://gulpjs.com/
 /* Default task */
 require('./gulp/_default')();
 
+
+/* Run Eleventy tasks */
+require('./gulp/eleventy')();
+
+
 /* Sass and CSS tasks */
 // require('./gulp/sass')();
 // require('./gulp/postcss')();

@@ -19,14 +19,27 @@ const copy = require('gulp-copy');
 
 module.exports = function () {
 
-    gulp.task('default', function (callback) {
-        runSequence(
+  gulp.task('default', function (callback) {
+      runSequence(
 //            ['css'],
-            'done',
-            'weather',
-            callback
-        )
-    });
+          'eleventy_dev',
+          'copy_assets',
+          'done',
+          'weather',
+          callback
+      )
+  });
+
+
+  gulp.task('deploy', function (callback) {
+    runSequence(
+      //            ['css'],
+      'eleventy_prod',
+      'copy_assets',
+      'done',
+      callback
+    )
+  });
 
 
     gulp.task('weather', shell.task('curl -s http://wttr.in/Gothenburg | head -7'));
@@ -44,52 +57,17 @@ module.exports = function () {
 
 
     gulp.task('done', function () {
-        console.log('All tasks done. Now what?');
+        console.log('All tasks done. Wanna talk about the weather?');
     });
 
 
-    gulp.task('copydevscripts', function () {
-      return gulp.src('./src/_js-includes/dev/scripts.html')
-        .pipe(copy('./src/_includes/', { prefix: 4 }))
-        .on('end', function () {
-          console.log('correct scripts hopefully copied :)')
-        });
-    });
-
-    gulp.task('copyassets', function () {
-      return gulp.src('./src/_includes/assets/**/*')
-        .pipe(copy('./_site/assets/', { prefix: 3 }))
-        .on('end', function () {
-          console.log('assets scripts hopefully copied :)')
-        });
-    });
-
-    gulp.task('copyprodscripts', function () {
-      return gulp.src('./src/_js-includes/prod/scripts.html')
-        .pipe(copy('./src/_includes/', { prefix: 4 }))
-        .on('end', function () {
-          console.log('correct scripts hopefully copied :)')
-        });
-    });
-
-    gulp.task('eleventy', shell.task('eleventy'));
-
-    gulp.task('elevendev', function (callback) {
-      runSequence(
-        'copydevscripts',
-        'eleventy',
-        'copyassets',
-        callback
-      )
-    });
-
-    gulp.task('elevenprod', function (callback) {
-      runSequence(
-        'copyprodscripts',
-        'eleventy',
-        callback
-      )
-    });
+  gulp.task('copy_assets', function () {
+    return gulp.src('./src/_includes/assets/**/*')
+      .pipe(copy('./_site/assets/', { prefix: 3 }))
+      .on('end', function () {
+        console.log('Assets copied')
+      });
+  });
 
 
 };
