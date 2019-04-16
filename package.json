@@ -6,6 +6,7 @@
     "license": "UNLICENSED",
     "devDependencies": {
         "@11ty/eleventy": "^0.8.0",
+        "@frctl/fractal": "^1.1.7",
         "gulp": "^3.9.1",
         "gulp-copy": "^4.0.1",
         "gulp-shell": "^0.6.5",
