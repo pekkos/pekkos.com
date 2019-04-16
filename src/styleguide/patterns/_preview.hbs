@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{ path '/assets/css/styles.min.css' }}">
+
+  <title>Preview</title>
+
+  <style>
+    .cards {
+      display: flex;
+    }
+
+    .cards img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  {{{ yield }}}
+
+  {{!--
+  <script src="{{ path '/assets/js/bundle.js' }}"></script> --}}
+</body>
+
+</html>

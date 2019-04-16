@@ -39,6 +39,10 @@ require('./gulp/_default')();
 require('./gulp/eleventy')();
 
 
+/* Run Fractal tasks */
+require('./fractal')();
+
+
 /* Sass and CSS tasks */
 // require('./gulp/sass')();
 // require('./gulp/postcss')();

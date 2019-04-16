@@ -1,0 +1,27 @@
+{{#each stylelint}}
+{{#if warnings}}
+<div>
+  <p><strong>{{ source }}</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Line</th>
+        <th>Rule</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each warnings}}
+      <tr>
+        <td>{{ line }}</td>
+        <td>{{ rule }}</td>
+        <td>{{ text }}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <br>
+</div>
+{{/if}}
+{{/each}}

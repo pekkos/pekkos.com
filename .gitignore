@@ -1,2 +1,4 @@
 node_modules
 _site
+_styleguide/**/*
+_styleguide/*
