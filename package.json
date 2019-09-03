@@ -1,7 +1,7 @@
 {
     "name": "pekkos.com",
     "version": "0.1.0",
-    "description": "Build script for CSS, JS and HTML patterns",
+    "description": "Build scripts for website and styleguide",
     "repository": "https://github.com/pekkos/pekkos.com",
     "license": "UNLICENSED",
     "devDependencies": {
