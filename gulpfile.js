@@ -35,31 +35,3 @@ https://gulpjs.com/
 require('./gulp/_default')();
 
 
-/* Run Eleventy tasks */
-require('./gulp/eleventy')();
-
-
-/* Run Fractal tasks */
-require('./fractal')();
-
-
-/* Sass and CSS tasks */
-// require('./gulp/sass')();
-// require('./gulp/postcss')();
-// require('./gulp/cssmin')();
-// require('./gulp/stylelint')();
-
-/* Run Fractal tasks */
-// require('./fractal')();
-
-/* Deploy tasks */
-// require('./gulp/deploy')();
-
-/* Run Jekyll tasks */
-// require('./gulp/jekyll')();
-
-
-
-
-
-
