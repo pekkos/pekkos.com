@@ -7,5 +7,7 @@
     "devDependencies": {
         "gulp": "^3.9.1"
     },
-    "dependencies": {}
+    "dependencies": {
+        "@frctl/fractal": "^1.2.0"
+    }
 }
