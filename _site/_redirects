@@ -1,0 +1,8 @@
+# Redirects from what the browser requests to what we serve
+tags/#jekyll      /tag/jekyll     301
+tags/#code        /tag/code       301
+tags/#https       /tag/https      301
+tags/#grunt       /tag/grunt      301
+tags/#gulp        /tag/gulp       301
+tags/#analytics   /tag/analytics  301
+tags/#ux          /tag/ux         301
