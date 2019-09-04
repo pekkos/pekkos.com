@@ -1,0 +1,27 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+
+/* TEAM */
+
+Personal web site of:
+
+Jonas Päckos
+Contact: hello [at] pekkos.com
+Twitter: @pekkos
+From: Gothenburg, Sweden
+
+
+
+/* SITE */
+
+Last site update: 2016/03/15
+Language: English
+
+Doctype: HTML5
+Standards: HTML, CSS, Javascript
+Components/Tools: Gulp, PostCSS, Sass
+
+Software: Fractal, Eleventy (11ty), Netlify
+IDE: VS Code
