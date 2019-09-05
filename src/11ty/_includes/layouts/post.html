@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+
+<article class="container h-entry">
+    <h1 class="spacing p-name">{{ title }}</h1>
+
+    <div class="meta_wrapper">
+        <span>
+            <!-- page.category (removed temporarily?) -->
+            <time class="dt-published" datetime="{{page.date | date: "%Y-%m-%d"}}">{{page.date | date: "%B %e, %Y"}}</time>
+        </span>
+        {%- if tags.size > 0 -%}
+        <h5>tags:</h5>
+        {%- endif -%}
+
+        <ul class="tag_list_in_post">
+            {%- for tag in tags -%}
+            <li class="inline tag_list_item">
+                <a class="tag_list_link" href="/tag/{{ tag }}">{{ tag }}</a>
+            </li>
+            {%- endfor -%}
+        </ul>
+    </div>
+
+    <div class="blog-post spacing e-content">
+        {{ content }}
+    </div>
+
+    {%- include twitter-plug.html -%}
+
+    {%- include comments.html -%}
+
+</article>
