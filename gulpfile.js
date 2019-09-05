@@ -31,8 +31,15 @@ https://gulpjs.com/
  * Place all gulp modules in the /gulp/ folder and include (require) them here
  */
 
-/* Default task */
+/* Default set of tasks */
 require('./gulp/_default')();
+
+
+/* Sass and CSS tasks */
+require('./gulp/stylelint')();
+require('./gulp/sass')();
+require('./gulp/postcss')();
+require('./gulp/cssmin')();
 
 
 /* Run Fractal tasks */

@@ -1,0 +1,11 @@
+<hr>
+<div class="test-report">{{#each issues}}{{#if errored}}
+  <h2>{{ source }}</h2>
+  {{#each warnings}}
+  <dl>
+    <dt data-impact="{{ severity }}">{{ severity }} on line {{ line }} col {{ column }}</dt>
+    <dd class="test-report__warning">Rule: {{ rule }}</dd>
+    <dd>{{ text }}</dd>
+  </dl>
+  {{/each}}
+  {{/if}}{{/each}}</div>

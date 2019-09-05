@@ -1,0 +1,81 @@
+/* =============================================================================
+ * Styleguide
+ *
+ * Styles that are added to the Fractal theme styleguide
+============================================================================= */
+
+/* Test reports */
+
+
+body {
+	counter-reset: li;
+}
+
+.test-report h2 {
+	font-size: 20px !important;
+}
+
+.test-report:empty::before {
+	content: "Looks like there are no problems reported, good job!";
+}
+
+.test-report__warning {
+	margin-top: 1em;
+	font-size: small;
+}
+
+.test-report__warning code {
+	font-size: small;
+}
+
+.test-report__warning + .test-report__warning {
+	margin-top: 2em;
+}
+
+.test-report dl + dl {
+	margin-top: 2em;
+}
+
+.test-report__warning::before {
+	counter-increment: li;
+	content: counter(li);
+	margin-right: 1em;
+	color: white;
+	background-color: rebeccapurple;
+	min-width: 1.5em;
+	height: 1.5em;
+	display: inline-block;
+	line-height: 1.2;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 50%;
+}
+
+.test-report__warning code + p {
+	margin-top: 1em;
+}
+
+[data-impact] {
+	padding: .2em 1em;
+}
+
+[data-impact="minor"],
+[data-impact="info"] {
+	background-color: green;
+	color: white;
+}
+
+[data-impact="moderate"] {
+	background-color: yellow;
+}
+
+[data-impact="serious"] {
+	background-color: orange;
+	color: white;
+}
+
+[data-impact="critical"],
+[data-impact="error"] {
+	background-color: red;
+	color: white;
+}

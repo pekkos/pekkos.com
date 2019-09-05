@@ -1,0 +1,40 @@
+html {
+  font-size: 20px;
+  margin-bottom: 20px;
+
+  @media (min-width: 600px ) {
+    margin-bottom: 22px;
+  }
+}
+
+p {
+  color: $color;
+  font-size: 3rem;
+  margin-top: 3em;
+
+  @media (min-width: 600px ) {
+    font-size: 4rem;
+  }
+}
+
+
+p {
+  background-color: rgb(11, 11, 11);
+}
+
+p {
+  background-color: rgb(11, 11, 11);
+  margin-top: 11px;
+  margin-right: 12px;
+  margin-bottom: 13px;
+  margin-left: 14px;
+}
+
+a {
+  background-color: rgb(11, 11, 11);
+}
+
+
+
+
+

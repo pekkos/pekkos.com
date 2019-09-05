@@ -1,0 +1,14 @@
+# Supported browsers.
+# This list is used by autoprefixer and  normalize
+# See https://github.com/ai/browserslist for more.
+#
+# Versions and browsers specified here can change on a per-project basis.
+
+last 2 Chrome versions
+last 2 Firefox versions
+Safari >= 10
+iOS >= 10
+android >= 4.4
+Edge >= 12
+ie >= 9
+> 1%
