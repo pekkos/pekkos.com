@@ -33,10 +33,18 @@ module.exports = function () {
       'stylelint',  // stylelint.js
       'sass',       // sass.js
       'postcss',    // postcss.js
-//      'cssmin',      // cssmin.js
+      'cssmin',      // cssmin.js
+      'copy:css_to_fractal',
       callback
     )
   });
+
+
+  /* Fractal start shortcut */
+  gulp.task('sg:s', shell.task('gulp fractal:start'));
+
+  /* Fractal build shortcut */
+  gulp.task('sg:b', shell.task('gulp fractal:build'));
 
 
 };

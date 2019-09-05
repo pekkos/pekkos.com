@@ -42,5 +42,8 @@ require('./gulp/postcss')();
 require('./gulp/cssmin')();
 
 
+/* Copy files between instances */
+require('./gulp/copy')();
+
 /* Run Fractal tasks */
 require('./fractal')();
