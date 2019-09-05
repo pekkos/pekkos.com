@@ -35,3 +35,5 @@ https://gulpjs.com/
 require('./gulp/_default')();
 
 
+/* Run Fractal tasks */
+require('./fractal')();

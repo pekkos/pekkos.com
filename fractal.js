@@ -45,6 +45,10 @@ fractal.web.set('static.path', __dirname + '/src/fractal/static');
 /* Set the static HTML build destination */
 fractal.web.set('builder.dest', __dirname + '/_styleguide');
 
+/* Preview */
+fractal.components.set('default.preview', '@preview');
+fractal.components.set('collate.preview', '@collate');
+
 
 
 /* Customized Styleguide theme */
@@ -55,7 +59,7 @@ const mandelbrot = require('@frctl/mandelbrot');
 // create a new instance with custom config options
 const myCustomisedTheme = mandelbrot({
   "styles": [
-    "/css/styleguide.css",
+    "/styleguide.css",
     "default"
   ]
 });
@@ -79,3 +83,32 @@ instance.handlebars.registerHelper('svg', function (iconName) {
 });
 
 
+
+/* gulp tasks to start and build fractal */
+
+const logger = fractal.cli.console; // keep a reference to the fractal CLI console utility
+const gulp = require('gulp');
+
+module.exports = function () {
+
+  gulp.task('fractal:start', function () {
+    const server = fractal.web.server({
+      sync: true
+    });
+    server.on('error', err => logger.error(err.message));
+    return server.start().then(() => {
+      logger.success(`Fractal server is now running at ${server.url}`);
+    });
+  });
+
+
+  gulp.task('fractal:build', function () {
+    const builder = fractal.web.builder();
+    builder.on('progress', (completed, total) => logger.update(`Exported ${completed} of ${total} items`, 'info'));
+    builder.on('error', err => logger.error(err.message));
+    return builder.build().then(() => {
+      logger.success('Fractal build completed!');
+    });
+  });
+
+};

@@ -5,7 +5,8 @@
     "repository": "https://github.com/pekkos/pekkos.com",
     "license": "UNLICENSED",
     "devDependencies": {
-        "gulp": "^3.9.1"
+        "gulp": "^3.9.1",
+        "gulp-shell": "^0.7.1"
     },
     "dependencies": {
         "@frctl/fractal": "^1.2.0"
