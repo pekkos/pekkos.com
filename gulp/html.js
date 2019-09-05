@@ -45,11 +45,11 @@ module.exports = function () {
   gulp.task('html_validation:styleguide', function () {
     return gulp.src('_styleguide/components/preview/*.html')
       .pipe(htmlValidation({
-        reportpath: 'test/reports/html_validation.json',
-        statusPath: 'test/reports/html_validation_status.json',
+        reportpath: 'test-reports/html_validation.json',
+        statusPath: 'test-reports/html_validation_status.json',
         generateReport: false
-        // errorTemplate: 'test/reports/w3c/w3c_template.html',
-        // errorHTMLRootDir: 'test/reports/w3c'
+        // errorTemplate: 'test-reports/w3c/w3c_template.html',
+        // errorHTMLRootDir: 'test-reports/w3c'
       }))
   });
 
@@ -58,7 +58,7 @@ module.exports = function () {
   gulp.task("html_validation_report:styleguide", function () {
     return gulp.src([
       'src/fractal/patterns/_hidden/test-reports/report-begin.txt',
-      'test/reports/html_validation.json',
+      'test-reports/html_validation.json',
       'src/fractal/patterns/_hidden/test-reports/report-end.txt'
     ])
     .pipe(concat('html-validation.config.json'))
@@ -73,7 +73,7 @@ module.exports = function () {
   gulp.task("wcag_validation:styleguide", function () {
     var options = {
       headless: true,
-      folderOutputReport: 'test/reports/',
+      folderOutputReport: 'test-reports/',
       saveOutputIn: 'wcag_validation.json',
       urls: [
         'http://localhost:3000/components/preview/test'
@@ -87,7 +87,7 @@ module.exports = function () {
   gulp.task("wcag_validation_report:styleguide", function () {
     return gulp.src([
       'src/fractal/patterns/_hidden/test-reports/report-begin.txt',
-      'test/reports/wcag_validation.json',
+      'test-reports/wcag_validation.json',
       'src/fractal/patterns/_hidden/test-reports/report-end.txt'
     ])
       .pipe(concat('wcag-validation.config.json'))

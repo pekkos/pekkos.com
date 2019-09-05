@@ -17,8 +17,14 @@ const runSequence = require('run-sequence');
 module.exports = function () {
 
 
-  gulp.task('default', function () {
-    console.log('Gulp had nothing to do today.');
+  gulp.task('default', function (callback) {
+    runSequence(
+      'html',
+      'css',
+//      'js',
+      'weather',
+      callback
+    )
   });
 
 

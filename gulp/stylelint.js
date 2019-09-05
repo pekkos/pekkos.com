@@ -44,11 +44,11 @@ module.exports = function () {
         failAfterError: false,
         reporters: [
           // { formatter: 'string', console: true },
-          { formatter: 'json', save: 'test/reports/css_stylelint.json' }
+          { formatter: 'json', save: 'test-reports/css_stylelint.json' }
         ]
       })
         .on('end', function () {
-          console.log('Styles linted and errors reported to /test/reports/css_stylelint.json');
+          console.log('Styles linted and errors reported to /test-reports/css_stylelint.json');
         })
       );
   });
@@ -62,7 +62,7 @@ module.exports = function () {
   gulp.task("stylelint-report", function () {
     return gulp.src([
         'src/fractal/patterns/_hidden/test-reports/report-begin.txt',
-        'test/reports/css_stylelint.json',
+        'test-reports/css_stylelint.json',
         'src/fractal/patterns/_hidden/test-reports/report-end.txt'
       ])
       .pipe(concat('css-stylelint.config.json'))
