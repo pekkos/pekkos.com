@@ -1,0 +1,10 @@
+<hr>
+<div class="test-report">{{#each issues}}{{#if error}}
+  <h2 class="test-report__warning">{{ filename }}</h2>
+  {{#each error}}
+  <dl>
+    <dt data-impact="{{ type }}">{{ type }} on line {{ lastLine }} col {{ lastCol }}</dt>
+    <dd>{{ message }}</dd>
+  </dl>
+  {{/each}}
+{{/if}}{{/each}}</div>

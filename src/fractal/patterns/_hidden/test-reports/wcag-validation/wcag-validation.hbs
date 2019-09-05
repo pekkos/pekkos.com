@@ -1,0 +1,18 @@
+<hr>
+<div class="test-report">{{#each issues}}
+  <h2>{{ url }}</h2>
+  {{#each violations}}
+  <div>
+    <h3>{{ description }}</h3>
+    <p data-impact="{{ impact }}">Impact: {{ impact }}</p>
+    <p><i><a href="{{ helpUrl }}" target="_blank">{{ help }}</a></i></p>
+    {{#each nodes }}
+    <div class="test-report__warning">
+      <code>{{ target }}</code>
+      <p>{{ failureSummary }}</p>
+    </div>
+    {{/each}}
+  </div>
+  <hr>
+  {{/each}}
+  {{/each}}</div>

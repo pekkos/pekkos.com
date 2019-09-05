@@ -42,6 +42,9 @@ require('./gulp/postcss')();
 require('./gulp/cssmin')();
 
 
+/* HTML tasks */
+require('./gulp/html')();
+
 /* Copy files between instances */
 require('./gulp/copy')();
 

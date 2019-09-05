@@ -40,6 +40,20 @@ module.exports = function () {
   });
 
 
+  /* HTML tasks */
+  gulp.task('html', function (callback) {
+    runSequence(
+      'fractal:build',
+      'html_lint:styleguide',  // html.js
+      'html_validation:styleguide', // html.js
+      'html_validation_report:styleguide', // html.js
+      'wcag_validation:styleguide', // html.js
+      'wcag_validation_report:styleguide', // html.js
+      callback
+    )
+  });
+
+
   /* Fractal start shortcut */
   gulp.task('sg:s', shell.task('gulp fractal:start'));
 
