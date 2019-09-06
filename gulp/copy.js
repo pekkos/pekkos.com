@@ -25,7 +25,10 @@ module.exports = function () {
 
   // Copy CSS to the Fractal styleguide
   gulp.task('copy:css_to_fractal', function () {
-    return gulp.src(['src/css/*.css', '!src/css/*.min.css'])
+    return gulp.src([
+        'src/css/*.css',
+        '!src/css/*.min.css'
+      ])
       .pipe(copy('src/fractal/static/assets/css', { prefix: 4 }))
       .on('end', function () {
         console.log('CSS files copied to Fractal Styleguide.')
@@ -33,14 +36,14 @@ module.exports = function () {
   });
 
 
-  // Copy assets to the Eleventy site
-  gulp.task('copy:assets_to_eleventy', function () {
+  // Copy minified CSS to Eleventy site
+  gulp.task('copy:css_to_eleventy', function () {
     return gulp.src([
-        'src/fractal/static/assets/**/*'
+        'src/css/*.min.css'
       ])
       .pipe(copy('_site/assets', { prefix: 4 }))
       .on('end', function () {
-        console.log('Assets copied to Eleventy site.')
+        console.log('CSS copied to Eleventy site.')
       });
   });
 

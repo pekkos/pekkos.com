@@ -41,6 +41,7 @@ module.exports = function () {
       'postcss',    // postcss.js
       'cssmin',      // cssmin.js
       'copy:css_to_fractal',
+      'copy:css_to_eleventy',
       callback
     )
   });

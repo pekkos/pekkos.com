@@ -46,13 +46,13 @@ module.exports = function () {
   gulp.task('cssMinify', function () {
     return gulp.src([
       'src/css/*.css',
-      '!src/css/*.min.css' // If any minified CSS files in the source foolder
+      // If any minified CSS files in the source foolder
+      '!src/css/*.min.css'
     ])
       .pipe(cssmin())
       .pipe(rename({ suffix: '.min' }))
       .pipe(gulp.dest('src/css'));
   });
-
 
 
   gulp.task('cssMeasureSize', function () {
@@ -69,6 +69,21 @@ module.exports = function () {
 
   gulp.task('cssmin-done', function () {
     console.log('CSS files minified and sized up');
+  });
+
+
+  gulp.task('cssMinify:deploy', function () {
+    return gulp.src([
+      'src/css/*.css',
+      // If any minified CSS files in the source foolder
+      '!src/css/*.min.css'
+    ])
+      .pipe(cssmin())
+      .pipe(rename({ suffix: '.min' }))
+      .pipe(gulp.dest('_site/assets/css'))
+      .on('end', function () {
+        console.log('CSS files minified and copied to site assets')
+      });
   });
 
 };

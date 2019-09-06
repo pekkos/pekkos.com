@@ -23,12 +23,10 @@ module.exports = function () {
 
 //   /* Publish Eleventy site on dev.pekkos.com */
 
-  gulp.task('deploy_site', function (callback) {
+  gulp.task('deploy', function (callback) {
     runSequence(
-      /* Build static site */
-      '11ty',
-      /* Copy static assets from the styleguide */
-      'copy:assets_to_eleventy',
+      '11ty',               /* Build static site */
+      'css',                /* Build CSS and deploy to styleguide and site */
       callback
     )
   });
