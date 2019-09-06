@@ -47,4 +47,16 @@ module.exports = function () {
       });
   });
 
+
+  // Copy root files to site
+  gulp.task('copy:root', function () {
+    return gulp.src([
+      'root/*'
+    ])
+      .pipe(copy('_site/', { prefix: 4 }))
+      .on('end', function () {
+        console.log('CSS copied to Eleventy site.')
+      });
+  });
+
 };
