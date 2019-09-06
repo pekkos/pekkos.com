@@ -30,7 +30,7 @@ module.exports = function () {
 
 //   /* Publish Eleventy site on dev.pekkos.com */
 
-  gulp.task('deploy', function (callback) {
+  gulp.task('deploy_dev', function (callback) {
     runSequence(
 //      'clean_site',         /* First, clean up the _site folder */
       '11ty',               /* Build static site */
