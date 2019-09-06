@@ -38,7 +38,7 @@ module.exports = function () {
     return gulp.src(['src/css/*.min.css'])
       .pipe(copy('_site/assets/css', { prefix: 4 }))
       .on('end', function () {
-        console.log('CSS files copied to Fractal Styleguide.')
+        console.log('CSS files copied to Eleventy site.')
       });
   });
 
