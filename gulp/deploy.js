@@ -25,7 +25,9 @@ module.exports = function () {
 
   gulp.task('deploy_site', function (callback) {
     runSequence(
+      /* Build static site */
       '11ty',
+      /* Copy static assets from the styleguide */
       'copy:assets_to_eleventy',
       callback
     )
