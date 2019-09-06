@@ -50,3 +50,7 @@ require('./gulp/copy')();
 
 /* Run Fractal tasks */
 require('./fractal')();
+
+
+/* Deploy tasks */
+require('./gulp/deploy')();

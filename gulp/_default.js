@@ -67,6 +67,9 @@ module.exports = function () {
   gulp.task('sg:b', shell.task('gulp fractal:build'));
 
 
+  /* Eleventy tasks */
+  gulp.task('11ty', shell.task('eleventy'));
+
 };
 
 
