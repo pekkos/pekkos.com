@@ -1,40 +1,68 @@
-html {
-  font-size: 20px;
-  margin-bottom: 20px;
+// html {
+//   font-size: 20px;
+//   margin-bottom: 20px;
 
-  @media (min-width: 600px ) {
-    margin-bottom: 22px;
-  }
+//   @media (min-width: 600px ) {
+//     margin-bottom: 22px;
+//   }
+// }
+
+// p {
+//   color: $color;
+//   font-size: 3rem;
+//   margin-top: 3em;
+
+//   @media (min-width: 600px ) {
+//     font-size: 4rem;
+//   }
+// }
+
+
+// p {
+//   background-color: rgb(11, 11, 11);
+// }
+
+// p {
+//   background-color: rgb(11, 11, 11);
+//   margin-top: 11px;
+//   margin-right: 12px;
+//   margin-bottom: 13px;
+//   margin-left: 14px;
+// }
+
+// a {
+//   background-color: rgb(11, 11, 11);
+// }
+
+
+
+
+
+body {
+  font-family: Georgia, Times, serif;
+  font-size: 125%;
+  line-height: 1.5;
 }
 
-p {
-  color: $color;
-  font-size: 3rem;
-  margin-top: 3em;
+body > * {
+  max-width: 40em;
+  padding: 2em;
+  margin: 0 auto;
+}
 
-  @media (min-width: 600px ) {
-    font-size: 4rem;
-  }
+h1, h2, h3, h4 {
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+header h1 {
+  font-size: 80%;
+}
+
+header h1 a {
+  text-decoration: none;
 }
 
 
-p {
-  background-color: rgb(11, 11, 11);
+img {
+  max-width: 100%;
 }
-
-p {
-  background-color: rgb(11, 11, 11);
-  margin-top: 11px;
-  margin-right: 12px;
-  margin-bottom: 13px;
-  margin-left: 14px;
-}
-
-a {
-  background-color: rgb(11, 11, 11);
-}
-
-
-
-
-
