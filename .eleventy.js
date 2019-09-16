@@ -25,6 +25,12 @@ https://www.11ty.io
 */
 
 
+
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(syntaxHighlight);
+};
+
 module.exports = function (eleventyConfig) {
 
   // Aliases are in relation to the _includes folder
