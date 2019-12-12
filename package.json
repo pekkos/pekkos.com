@@ -22,6 +22,7 @@
         "gulp-size": "^3.0.0",
         "gulp-stylelint": "^9.0.0",
         "gulp-w3c-html-validation": "0.0.1",
+        "lodash.template": ">=4.5.0",
         "node-sass": "^4.12.0",
         "pixrem": "^5.0.0",
         "postcss-discard-duplicates": "^4.0.2",
