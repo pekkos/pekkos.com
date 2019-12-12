@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "description": "Build scripts for website and styleguide",
     "repository": "https://github.com/pekkos/pekkos.com",
-    "license": "UNLICENSED",
+    "license": "MIT LICENSE",
     "devDependencies": {
         "autoprefixer": "^9.6.1",
         "css-declaration-sorter": "^4.0.1",
