@@ -40,6 +40,15 @@ module.exports = function () {
   });
 
 
+  gulp.task('stylelint_prod', function (callback) {
+    runSequence(
+      'sass-lint',
+      'stylelint-report',
+      callback
+    )
+  });
+
+
   gulp.task("sass-lint", function () {
     return gulp
       .src([
@@ -48,6 +57,27 @@ module.exports = function () {
       ])
       .pipe(sassStylelint({
         failAfterError: false,
+        fix: true,
+        reporters: [
+          { formatter: 'json', save: 'test-reports/css_stylelint.json' }
+        ]
+      }))
+      .pipe(gulp.dest('src/css/sass/')
+        .on('end', function () {
+          console.log('Styles linted and errors reported to /test-reports/css_stylelint.json');
+        })
+      );
+  });
+
+
+  gulp.task("sass-lint_prod", function () {
+    return gulp
+      .src([
+        'src/css/sass/**/*.scss',
+        '!src/css/sass/*.scss'
+      ])
+      .pipe(sassStylelint({
+        failAfterError: true,
         fix: true,
         reporters: [
           { formatter: 'json', save: 'test-reports/css_stylelint.json' }
