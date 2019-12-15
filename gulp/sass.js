@@ -28,11 +28,15 @@ const sassGlob = require('gulp-sass-glob');
 module.exports = function () {
 
   gulp.task('sass', function () {
-    return gulp.src([
-      'src/css/sass/*.scss'
-    ])
+    return gulp
+      .src([
+        'src/css/sass/*.scss'
+      ])
       .pipe(sassGlob())
-      .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+      .pipe(sass({
+          outputStyle: 'expanded'
+        })
+        .on('error', sass.logError))
       .pipe(gulp.dest('src/css'))
       .on('end', function () {
         console.log('SCSS compiled to CSS.');
