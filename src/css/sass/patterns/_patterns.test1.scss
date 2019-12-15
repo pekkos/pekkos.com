@@ -1,16 +1,17 @@
 .test1 {
-  --var: 38px;
+  --var: 38em;
   width: 35px;
   background: #fde;
   color: $color;
 }
 .test2 { color: white; }
 
+
 /*
 .test1 {
    color: $color;
+  --var: 38em;
    background:#fde;
-   --var: 38px;
   width:35px;
 } .test2 { color:white;}
 */
