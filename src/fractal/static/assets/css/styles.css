@@ -380,33 +380,6 @@ template,[hidden] {
  *
  * A very simple reset that sits on top of Normalize.css.
  */
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-dl,
-dd,
-ol,
-ul,
-form,
-fieldset,
-legend,
-figure,
-table,
-th,
-td,
-caption,
-hr {
-  margin: 0;
-  padding: 0;
-}
-
 /**
  * Remove trailing margins from nested lists.
  */
@@ -585,8 +558,10 @@ dialog {
   border: solid;
   background-color: #fff;
   padding: 1em;
+  width: -moz-fit-content;
   width: -webkit-fit-content;
   width: fit-content;
+  height: -moz-fit-content;
   height: -webkit-fit-content;
   height: fit-content;
   color: #000;
@@ -921,6 +896,10 @@ img {
 
 .highlight .gi {
   color: #a6e22e;
+}
+
+.test {
+  color: red;
 }
 
 /* LAYOUT */

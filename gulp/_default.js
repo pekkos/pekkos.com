@@ -79,3 +79,35 @@ module.exports = function () {
 
 
 
+/*
+
+CSS
+[X] Stylelint and order Sass
+- Compile Sass to CSS
+- Process CSS with PostCSS
+- Minify CSS
+- Copy CSS to Fractal and 11ty
+
+JS
+- ES lint JS
+- Copy JS to Fractal
+- Webpack bundle and minify JS to 11ty
+
+HTML
+- HTML lint Fractal
+- HTML vadlidate Fractal
+- WCAG validate Fractal
+- Check DOM?
+- HTML lint 11ty
+- HTML validate 11ty
+- WCAG validate 11ty
+
+SVG
+- optimize
+
+IMAGES
+- optimize
+
+OTHER STUFF??
+
+*/

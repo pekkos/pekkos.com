@@ -1,4 +1,7 @@
 {
+  "plugins": [
+    "stylelint-order"
+  ],
   "rules": {
     "color-no-hex": true,
     "function-calc-no-unspaced-operator": true,
@@ -51,7 +54,6 @@
     "selector-attribute-brackets-space-inside": "never",
     "selector-combinator-space-after": "always",
     "selector-combinator-space-before": "always",
-#    "selector-no-id": true,
     "selector-no-qualifying-type": true,
     "selector-no-vendor-prefix": true,
     "selector-pseudo-class-case": "lower",
@@ -78,6 +80,15 @@
       80,
       ignore: ["non-comments"]
     ],
-    "no-duplicate-selectors": true
+    "no-duplicate-selectors": true,
+    "order/order": [
+			"custom-properties",
+			"declarations"
+		],
+    "order/properties-order": [
+      "width",
+      "background",
+      "color"
+    ]
   }
 }

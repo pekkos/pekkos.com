@@ -4,7 +4,11 @@
  * Lint Sass and report errors
  * https://stylelint.io/
  *
- * Stylelint uses the rulesets defined in the .stylelintrc config file
+ * Order declarations
+ * https://github.com/hudochenkov/stylelint-order
+ *
+ * Stylelint uses the rulesets defined in the .stylelintrc config file, tries
+ * to fix errors and saves to source files
  */
 
 
@@ -37,16 +41,19 @@ module.exports = function () {
 
 
   gulp.task("sass-lint", function () {
-    return gulp.src(
-      ['src/css/sass/**/*.scss',
-        '!src/css/sass/*.scss'])
+    return gulp
+      .src([
+        'src/css/sass/**/*.scss',
+        '!src/css/sass/*.scss'
+      ])
       .pipe(sassStylelint({
         failAfterError: false,
+        fix: true,
         reporters: [
-          // { formatter: 'string', console: true },
           { formatter: 'json', save: 'test-reports/css_stylelint.json' }
         ]
-      })
+      }))
+      .pipe(gulp.dest('src/css/sass/')
         .on('end', function () {
           console.log('Styles linted and errors reported to /test-reports/css_stylelint.json');
         })
