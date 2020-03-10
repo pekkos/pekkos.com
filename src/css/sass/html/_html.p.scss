@@ -55,22 +55,22 @@ textarea{ overflow: auto; }
 
 [type=checkbox],
 [type=radio]{ -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0; }
-[type=search]{ -webkit-appearance: textfield; outline-offset: -2px; }
+[type=search]{ outline-offset: -2px; -webkit-appearance: textfield; }
 
 ::-webkit-inner-spin-button,
 ::-webkit-outer-spin-button{ height: auto; }
-::-webkit-input-placeholder{ opacity: .54; color: inherit; }
+::-webkit-input-placeholder{ color: inherit; opacity: .54; }
 ::-webkit-search-decoration{ -webkit-appearance: none; }
-::-webkit-file-upload-button{ -webkit-appearance: button; font: inherit; }
+::-webkit-file-upload-button{ font: inherit; -webkit-appearance: button; }
 
 .ge,
 .highlight .ge{ font-style: italic; }
 
 .gs,
 .highlight .gs{ font-weight: 700; }
-::-moz-focus-inner{ border-style: none; padding: 0; }
+::-moz-focus-inner{ padding: 0; border-style: none; }
 :-moz-focusring{ outline: ButtonText dotted 1px; }
-dialog{ position: absolute; right: 0; left: 0; margin: auto; border: solid; background-color: #fff; padding: 1em; width: -moz-fit-content; width: -webkit-fit-content; width: fit-content; height: -moz-fit-content; height: -webkit-fit-content; height: fit-content; color: #000; }
+dialog{ position: absolute; right: 0; left: 0; margin: auto; padding: 1em; width: -moz-fit-content; width: -webkit-fit-content; width: fit-content; height: -moz-fit-content; height: -webkit-fit-content; height: fit-content; border: solid; background-color: #fff; color: #000; }
 
 [hidden],
 dialog:not([open]),
@@ -85,7 +85,7 @@ h3,
 h4{ font-family: Tahoma, Arial, sans-serif; }
 header h1{ font-size: 80%; }
 header h1 a{ text-decoration: none; }
-img{ border-style: none; max-width: 100%; }
+img{ max-width: 100%; border-style: none; }
 .c{ color: #75715e; }
 .err{ background-color: #1e0010; color: #960050; }
 .k{ color: #66d9ef; }

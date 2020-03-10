@@ -1,0 +1,16 @@
+.test {
+  margin-top: 15px;
+  display: block;
+color: blue;
+/* very long comment that will surely overflow the max line length of 80 characters */
+}
+
+
+
+
+
+
+
+.new rule {
+
+}
