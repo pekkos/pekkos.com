@@ -33,6 +33,7 @@ module.exports = function () {
 
   gulp.task('stylelint', function (callback) {
     runSequence(
+      'sass-fix',
       'sass-lint',
       'stylelint-report',
       callback
@@ -42,24 +43,39 @@ module.exports = function () {
 
   gulp.task('stylelint_prod', function (callback) {
     runSequence(
+      'sass-fix',
       'sass-lint',
       'stylelint-report',
       callback
     )
   });
 
+  gulp.task('sass-fix', function fixCssTask() {
+    return gulp
+      .src([
+        'src/css/sass/**/*.scss',
+        '!src/css/sass/*.scss'
+      ])
+      .pipe(sassStylelint({
+        fix: true
+      }))
+      .pipe(gulp.dest('src/css/sass/')
+        .on('end', function () {
+          console.log('Stylelint fixed sass files before error checking');
+        })
+      );
+  });
 
   gulp.task("sass-lint", function () {
     return gulp
       .src([
-//        'src/css/sass/**/*.scss',
-        'src/css/sass/test/*.scss',
+        'src/css/sass/**/*.scss',
         '!src/css/sass/*.scss'
       ])
       .pipe(sassStylelint({
-        failAfterError: false,
-        fix: true,
+        failAfterError: true,
         reporters: [
+          { formatter: 'verbose', console: true },
           { formatter: 'json', save: 'test-reports/css_stylelint.json' }
         ]
       }))
@@ -69,7 +85,6 @@ module.exports = function () {
         })
       );
   });
-
 
   gulp.task("sass-lint_prod", function () {
     return gulp

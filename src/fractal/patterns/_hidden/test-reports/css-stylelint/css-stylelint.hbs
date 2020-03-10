@@ -1,5 +1,6 @@
 <hr>
-<div class="test-report">{{#each issues}}{{#if errored}}
+<div class="test-report">{{#each issues}}
+  {{#if warnings }}
   <h2>{{ source }}</h2>
   {{#each warnings}}
   <dl>
@@ -8,4 +9,5 @@
     <dd>{{ text }}</dd>
   </dl>
   {{/each}}
+  <hr>
   {{/if}}{{/each}}</div>
