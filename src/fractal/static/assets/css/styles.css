@@ -116,11 +116,6 @@ main {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
 /* Text-level semantics
  * ========================================================================== */
 
@@ -136,17 +131,12 @@ pre {
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 
-b,
-strong {
-  font-weight: bolder;
-}
-
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 
-code,
+pre,code,
 kbd,
 samp {
   font-family: monospace, monospace; /* 1 */
@@ -283,11 +273,6 @@ textarea {
  * Correct the cursor style of increment and decrement buttons in Safari.
  */
 
-::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
-  height: auto;
-}
-
 /**
  * Correct the text style of placeholders in Chrome, Edge, and Safari.
  */
@@ -312,6 +297,10 @@ textarea {
 /**
  * Restore the focus outline styles unset by the previous rule in Firefox.
  */
+
+:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
 
 /**
  * Remove the additional :invalid styles in Firefox.
@@ -392,8 +381,8 @@ li > ol {
  * Remove spaces between table cells.
  */
 table {
-  border-collapse: collapse;
   border-spacing: 0;
+  border-collapse: collapse;
 }
 
 td,
@@ -403,34 +392,46 @@ th {
 
 /* HTML */
 /*! No CSS before this comment! */
-html, legend {
+html,
+legend {
   -webkit-box-sizing: border-box;
 }
 
-button, hr, input {
+button,
+hr,
+input {
   overflow: visible;
 }
 
-audio, canvas, progress, video {
+audio,
+canvas,
+progress,
+video {
   display: inline-block;
 }
 
-button, select {
+button,
+select {
   text-transform: none;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   margin: 0;
 }
 
 html {
+  box-sizing: border-box;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  box-sizing: border-box;
   line-height: 1.15;
 }
 
-*, :after, :before {
+*,
+:after,
+:before {
   box-sizing: inherit;
 }
 
@@ -445,12 +446,17 @@ hr {
   height: 0;
 }
 
-details, dialog, main {
+details,
+dialog,
+main {
   display: block;
 }
 
-code, kbd, pre, samp {
-  font-family: monospace,monospace;
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
   font-size: 1em;
 }
 
@@ -464,7 +470,8 @@ abbr[title] {
   text-decoration: underline dotted;
 }
 
-b, strong {
+b,
+strong {
   font-weight: bolder;
 }
 
@@ -481,7 +488,10 @@ svg:not(:root) {
   overflow: hidden;
 }
 
-[type=button], [type=reset], [type=submit], button {
+[type=button],
+[type=reset],
+[type=submit],
+button {
   -webkit-appearance: button;
 }
 
@@ -505,23 +515,25 @@ textarea {
   overflow: auto;
 }
 
-[type=checkbox], [type=radio] {
+[type=checkbox],
+[type=radio] {
   box-sizing: border-box;
   padding: 0;
 }
 
 [type=search] {
-  -webkit-appearance: textfield;
   outline-offset: -2px;
+  -webkit-appearance: textfield;
 }
 
-::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
   height: auto;
 }
 
 ::-webkit-input-placeholder {
-  opacity: .54;
   color: inherit;
+  opacity: .54;
 }
 
 ::-webkit-search-decoration {
@@ -529,25 +541,27 @@ textarea {
 }
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
   font: inherit;
+  -webkit-appearance: button;
 }
 
-.ge, .highlight .ge {
+.ge,
+.highlight .ge {
   font-style: italic;
 }
 
-.gs, .highlight .gs {
+.gs,
+.highlight .gs {
   font-weight: 700;
 }
 
 ::-moz-focus-inner {
-  border-style: none;
   padding: 0;
+  border-style: none;
 }
 
 :-moz-focusring {
-  outline: 1px dotted ButtonText;
+  outline: ButtonText dotted 1px;
 }
 
 dialog {
@@ -555,8 +569,6 @@ dialog {
   right: 0;
   left: 0;
   margin: auto;
-  border: solid;
-  background-color: #fff;
   padding: 1em;
   width: -moz-fit-content;
   width: -webkit-fit-content;
@@ -564,10 +576,14 @@ dialog {
   height: -moz-fit-content;
   height: -webkit-fit-content;
   height: fit-content;
+  border: solid;
+  background-color: #fff;
   color: #000;
 }
 
-[hidden], dialog:not([open]), template {
+[hidden],
+dialog:not([open]),
+template {
   display: none;
 }
 
@@ -576,7 +592,7 @@ summary {
 }
 
 body {
-  font-family: Georgia,Times,serif;
+  font-family: Georgia, Times, serif;
   font-size: 125%;
   line-height: 1.5;
 }
@@ -587,8 +603,11 @@ body > * {
   max-width: 40em;
 }
 
-h1, h2, h3, h4 {
-  font-family: Tahoma,Arial,sans-serif;
+h1,
+h2,
+h3,
+h4 {
+  font-family: Tahoma, Arial, sans-serif;
 }
 
 header h1 {
@@ -600,8 +619,8 @@ header h1 a {
 }
 
 img {
-  border-style: none;
   max-width: 100%;
+  border-style: none;
 }
 
 .c {
@@ -633,11 +652,15 @@ img {
   color: #f8f8f2;
 }
 
-.c1, .cm, .cp, .cs {
+.c1,
+.cm,
+.cp,
+.cs {
   color: #75715e;
 }
 
-.kc, .kd {
+.kc,
+.kd {
   color: #66d9ef;
 }
 
@@ -645,7 +668,9 @@ img {
   color: #f92672;
 }
 
-.kp, .kr, .kt {
+.kp,
+.kr,
+.kt {
   color: #66d9ef;
 }
 
@@ -685,11 +710,13 @@ img {
   color: #f8f8f2;
 }
 
-.ne, .nf {
+.ne,
+.nf {
   color: #a6e22e;
 }
 
-.nl, .nn {
+.nl,
+.nn {
   color: #f8f8f2;
 }
 
@@ -717,11 +744,17 @@ img {
   color: #f8f8f2;
 }
 
-.mf, .mh, .mi, .mo {
+.mf,
+.mh,
+.mi,
+.mo {
   color: #ae81ff;
 }
 
-.s2, .sb, .sc, .sd {
+.s2,
+.sb,
+.sc,
+.sd {
   color: #e6db74;
 }
 
@@ -729,11 +762,19 @@ img {
   color: #ae81ff;
 }
 
-.s1, .sh, .si, .sr, .ss, .sx {
+.s1,
+.sh,
+.si,
+.sr,
+.ss,
+.sx {
   color: #e6db74;
 }
 
-.bp, .vc, .vg, .vi {
+.bp,
+.vc,
+.vg,
+.vi {
   color: #f8f8f2;
 }
 
@@ -745,7 +786,8 @@ img {
   padding: 1em;
 }
 
-.highlight, .highlight .hll {
+.highlight,
+.highlight .hll {
   background-color: #272822;
 }
 
@@ -778,11 +820,15 @@ img {
   color: #f8f8f2;
 }
 
-.highlight .c1, .highlight .cm, .highlight .cp, .highlight .cs {
+.highlight .c1,
+.highlight .cm,
+.highlight .cp,
+.highlight .cs {
   color: #75715e;
 }
 
-.highlight .kc, .highlight .kd {
+.highlight .kc,
+.highlight .kd {
   color: #66d9ef;
 }
 
@@ -790,7 +836,9 @@ img {
   color: #f92672;
 }
 
-.highlight .kp, .highlight .kr, .highlight .kt {
+.highlight .kp,
+.highlight .kr,
+.highlight .kt {
   color: #66d9ef;
 }
 
@@ -830,11 +878,13 @@ img {
   color: #f8f8f2;
 }
 
-.highlight .ne, .highlight .nf {
+.highlight .ne,
+.highlight .nf {
   color: #a6e22e;
 }
 
-.highlight .nl, .highlight .nn {
+.highlight .nl,
+.highlight .nn {
   color: #f8f8f2;
 }
 
@@ -862,11 +912,17 @@ img {
   color: #f8f8f2;
 }
 
-.highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo {
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo {
   color: #ae81ff;
 }
 
-.highlight .s2, .highlight .sb, .highlight .sc, .highlight .sd {
+.highlight .s2,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd {
   color: #e6db74;
 }
 
@@ -874,11 +930,19 @@ img {
   color: #ae81ff;
 }
 
-.highlight .s1, .highlight .sh, .highlight .si, .highlight .sr, .highlight .ss, .highlight .sx {
+.highlight .s1,
+.highlight .sh,
+.highlight .si,
+.highlight .sr,
+.highlight .ss,
+.highlight .sx {
   color: #e6db74;
 }
 
-.highlight .bp, .highlight .vc, .highlight .vg, .highlight .vi {
+.highlight .bp,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi {
   color: #f8f8f2;
 }
 
@@ -905,6 +969,36 @@ img {
 /* LAYOUT */
 /* OBJECTS */
 /* PATTERNS */
+.test3 {
+  width: 34px;
+}
+
+.test1 {
+  --var: 38em;
+  width: 35px;
+  background: #fde;
+  color: red;
+}
+
+.test2 {
+  color: white;
+}
+
+/*
+.test1 {
+   color: $color;
+  --var: 38em;
+   background:#fde;
+  width:35px;
+} .test2 { color:white;}
+*/
+.test {
+  display: block;
+  margin-top: 15px;
+  width: 16px;
+  color: blue;
+}
+
 /* UTILITIES */
 /**
  * atom-dark theme for `prism.js`
@@ -913,29 +1007,29 @@ img {
  */
 code[class*="language-"],
 pre[class*="language-"] {
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
   color: #c5c8c6;
-  font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
-  hyphens: none;
+  font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace;
   line-height: 1.5;
-  direction: ltr;
   text-align: left;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
   white-space: pre;
-  word-break: normal;
   word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
   tab-size: 4;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  direction: ltr;
 }
 
 /* Code blocks */
 pre[class*="language-"] {
   margin: .5em 0;
-  border-radius: 0.3em;
   padding: 1em;
   overflow: auto;
+  border-radius: .3em;
 }
 
 :not(pre) > code[class*="language-"],
@@ -945,8 +1039,8 @@ pre[class*="language-"] {
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-  border-radius: .3em;
   padding: .1em;
+  border-radius: .3em;
 }
 
 .token.comment,

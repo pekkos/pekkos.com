@@ -1,6 +1,9 @@
+$fuckoff: 16px;
+
 .test {
   display: block;
   margin-top: 15px;
+  width: $fuckoff;
   color: blue;
   // very long comment that will surely overflow the max line length of 80 characters
 }

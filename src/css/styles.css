@@ -298,6 +298,10 @@ textarea {
  * Restore the focus outline styles unset by the previous rule in Firefox.
  */
 
+:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
 /**
  * Remove the additional :invalid styles in Firefox.
  */
@@ -377,8 +381,8 @@ li > ol {
  * Remove spaces between table cells.
  */
 table {
-  border-collapse: collapse;
   border-spacing: 0;
+  border-collapse: collapse;
 }
 
 td,
@@ -419,9 +423,9 @@ textarea {
 }
 
 html {
+  box-sizing: border-box;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  box-sizing: border-box;
   line-height: 1.15;
 }
 
@@ -518,8 +522,8 @@ textarea {
 }
 
 [type=search] {
-  -webkit-appearance: textfield;
   outline-offset: -2px;
+  -webkit-appearance: textfield;
 }
 
 ::-webkit-inner-spin-button,
@@ -528,8 +532,8 @@ textarea {
 }
 
 ::-webkit-input-placeholder {
-  opacity: .54;
   color: inherit;
+  opacity: .54;
 }
 
 ::-webkit-search-decoration {
@@ -537,8 +541,8 @@ textarea {
 }
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
   font: inherit;
+  -webkit-appearance: button;
 }
 
 .ge,
@@ -552,12 +556,12 @@ textarea {
 }
 
 ::-moz-focus-inner {
-  border-style: none;
   padding: 0;
+  border-style: none;
 }
 
 :-moz-focusring {
-  outline: 1px dotted ButtonText;
+  outline: ButtonText dotted 1px;
 }
 
 dialog {
@@ -565,8 +569,6 @@ dialog {
   right: 0;
   left: 0;
   margin: auto;
-  border: solid;
-  background-color: #fff;
   padding: 1em;
   width: -moz-fit-content;
   width: -webkit-fit-content;
@@ -574,6 +576,8 @@ dialog {
   height: -moz-fit-content;
   height: -webkit-fit-content;
   height: fit-content;
+  border: solid;
+  background-color: #fff;
   color: #000;
 }
 
@@ -615,8 +619,8 @@ header h1 a {
 }
 
 img {
-  border-style: none;
   max-width: 100%;
+  border-style: none;
 }
 
 .c {
@@ -958,16 +962,22 @@ img {
   color: #a6e22e;
 }
 
+.test {
+  color: red;
+}
+
 /* LAYOUT */
 /* OBJECTS */
 /* PATTERNS */
-.test,.test1 {
-  color: red;
+.test3 {
+  width: 34px;
 }
+
 .test1 {
   --var: 38em;
-  background: #fde;
   width: 35px;
+  background: #fde;
+  color: red;
 }
 
 .test2 {
@@ -982,6 +992,13 @@ img {
   width:35px;
 } .test2 { color:white;}
 */
+.test {
+  display: block;
+  margin-top: 15px;
+  width: 16px;
+  color: blue;
+}
+
 /* UTILITIES */
 /**
  * atom-dark theme for `prism.js`
@@ -990,29 +1007,29 @@ img {
  */
 code[class*="language-"],
 pre[class*="language-"] {
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
   color: #c5c8c6;
   font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace;
-  hyphens: none;
   line-height: 1.5;
-  direction: ltr;
   text-align: left;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
   white-space: pre;
-  word-break: normal;
   word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
   tab-size: 4;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  direction: ltr;
 }
 
 /* Code blocks */
 pre[class*="language-"] {
   margin: .5em 0;
-  border-radius: .3em;
   padding: 1em;
   overflow: auto;
+  border-radius: .3em;
 }
 
 :not(pre) > code[class*="language-"],
@@ -1022,8 +1039,8 @@ pre[class*="language-"] {
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-  border-radius: .3em;
   padding: .1em;
+  border-radius: .3em;
 }
 
 .token.comment,
