@@ -44,7 +44,7 @@ module.exports = function () {
   gulp.task('stylelint_prod', function (callback) {
     runSequence(
       'sass-fix',
-      'sass-lint',
+      'sass-lint_prod',
       'stylelint-report',
       callback
     )
@@ -57,6 +57,7 @@ module.exports = function () {
         '!src/css/sass/*.scss'
       ])
       .pipe(sassStylelint({
+        failAfterError: false,
         fix: true
       }))
       .pipe(gulp.dest('src/css/sass/')
@@ -73,7 +74,7 @@ module.exports = function () {
         '!src/css/sass/*.scss'
       ])
       .pipe(sassStylelint({
-        failAfterError: true,
+        failAfterError: false,
         reporters: [
           { formatter: 'verbose', console: true },
           { formatter: 'json', save: 'test-reports/css_stylelint.json' }
