@@ -6,3 +6,5 @@ _site/**/*
 test-reports/*
 
 
+src/fractal/patterns/_hidden/test-reports/css-stylelint/css-stylelint.config.json
+test-reports/css_stylelint.json
