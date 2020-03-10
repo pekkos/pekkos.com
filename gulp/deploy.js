@@ -11,7 +11,7 @@
 
 const gulp = require('gulp');
 const shell = require('gulp-shell')
-const runSequence = require('run-sequence');
+const runSequence = require('gulp4-run-sequence');
 
 
 /**

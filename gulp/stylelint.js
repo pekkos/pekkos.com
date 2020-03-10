@@ -17,7 +17,7 @@
  */
 
 const gulp = require('gulp');
-const runSequence = require('run-sequence');
+const runSequence = require('gulp4-run-sequence');
 
 
 /**
@@ -52,7 +52,8 @@ module.exports = function () {
   gulp.task("sass-lint", function () {
     return gulp
       .src([
-        'src/css/sass/**/*.scss',
+//        'src/css/sass/**/*.scss',
+        'src/css/sass/test/*.scss',
         '!src/css/sass/*.scss'
       ])
       .pipe(sassStylelint({

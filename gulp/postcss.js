@@ -11,7 +11,7 @@
  */
 
 const gulp = require('gulp');
-const runSequence = require('run-sequence');
+const runSequence = require('gulp4-run-sequence');
 const copy = require('gulp-copy');
 
 
