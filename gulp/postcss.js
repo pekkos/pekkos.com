@@ -81,9 +81,8 @@ module.exports = function () {
     runSequence(
       'normalize',
       'postcss-plus',
-      'postcss-order',
+//      'postcss-order',
       'postcss-minus',
-      'postcss-done',
       callback
     )
   });
@@ -131,12 +130,11 @@ module.exports = function () {
 
     return gulp.src('src/css/*.css')
       .pipe(postcss(plugins))
-      .pipe(gulp.dest('src/css'));
-  });
-
-
-  gulp.task('postcss-done', function () {
-    console.log('CSS files processed by PostCSS plugins');
+      .pipe(gulp.dest('src/css')
+        .on('end', function () {
+          console.log('CSS files processed by PostCSS plugins');
+        })
+      );
   });
 
 };

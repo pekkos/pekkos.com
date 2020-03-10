@@ -37,7 +37,6 @@ module.exports = function () {
       'cssMinify',
       'cssMeasureSize', // Get main unminified CSS file size
       'cssCalculateGzip', // Get main minified CSS file gzipped
-      'cssmin-done',
       callback
     )
   });
@@ -64,11 +63,6 @@ module.exports = function () {
   gulp.task('cssCalculateGzip', function () {
     return gulp.src('src/css/*.min.css')
       .pipe(cssSize({ gzip: true, showFiles: true, title: 'Minified and Gzipped CSS: ' }));
-  });
-
-
-  gulp.task('cssmin-done', function () {
-    console.log('CSS files minified and sized up');
   });
 
 
