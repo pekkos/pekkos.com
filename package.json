@@ -15,5 +15,7 @@
 		"gulp-clean": "^0.4.0",
 		"gulp-copy": "^4.0.1"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"@frctl/fractal": "^1.5.13"
+	}
 }

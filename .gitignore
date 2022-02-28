@@ -2,5 +2,6 @@ node_modules
 .npmrc
 _legacy
 _site
-_styleguide
+_styleguide/*
 !root/*
+_styleguide/index.html
