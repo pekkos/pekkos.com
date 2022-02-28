@@ -26,6 +26,17 @@ g:::::gg   gg:::::g                          p:::::::p
 https://gulpjs.com/
 */
 
+/* Exported / Public tasks
+
+	'$ gulp' 					[Runs through all build steps, use it locally]
+	'$ gulp deploy_legacy'		[Deploys the legacy github.io site, use it on
+								 Main/www]
+
+*/
+
+/* -----------------------------------------------------------------------------
+ * Gulp requirements and plugins
+ * -------------------------------------------------------------------------- */
 
 /* Base gulp requirements */
 const gulp = require('gulp');
@@ -35,6 +46,11 @@ const clean = require('gulp-clean');
 
 /* Fetch required plugins */
 const copy = require('gulp-copy');
+
+
+/* -----------------------------------------------------------------------------
+ * Gulp tasks
+ * -------------------------------------------------------------------------- */
 
 function defaultTask(cb) {
 	console.log('place code for your default task here');
@@ -77,7 +93,9 @@ function weather(cb) {
 
 
 
-/* Public tasks */
+/* -----------------------------------------------------------------------------
+ * Public Gulp tasks
+ * -------------------------------------------------------------------------- */
 
 /* Default */
 exports.default = series(
@@ -105,6 +123,8 @@ exports.deploy_legacy = series(
 
 /* Single tasks */
 exports.weather = weather;
+
+/* Single tasks for testing */
 exports.clean = clean_site;
 exports.clean_legacy = clean_site_legacy;
 exports.legacy = copy_site_legacy;
