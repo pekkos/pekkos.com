@@ -30,9 +30,10 @@ https://gulpjs.com/
 
 /* Exported / Public tasks
 
-	'$ gulp' 				[Runs through all build steps, use it locally]
-	'$ gulp deploy'			[Deploys the legacy github.io site, use it on Main/www]
-	'$ gulp fractal_start 	[Start a local fractal web server with browser sync]
+	'$ gulp' 					[Runs through all build steps, use it locally]
+	'$ gulp deploy'				[Deploys the legacy github.io site, use it on Main/www]
+	'$ gulp deploy_styleguide	[Builds a static styleguide]
+	'$ gulp fractal_start 		[Start a local fractal web server with browser sync]
 
 */
 
@@ -54,11 +55,6 @@ const copy = require('gulp-copy');
 /* -----------------------------------------------------------------------------
  * Gulp tasks
  * -------------------------------------------------------------------------- */
-
-function defaultTask(cb) {
-	console.log('place code for your default task here');
-	cb();
-}
 
 function clean_site(cb) {
 	return src('_site/*', { read: false })
@@ -212,9 +208,8 @@ function fractal_build () {
 
 /* Default */
 exports.default = series(
-	clean_site,
-	copy_root,
-	copy_site_legacy,
+	clean_dest_styleguide,
+	fractal_build,
 	weather
 );
 
