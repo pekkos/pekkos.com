@@ -83,7 +83,7 @@ function weather(cb) {
 exports.default = series(
 	clean_site,
 	copy_root,
-	copy_legacy_site,
+	copy_site_legacy,
 	weather
 );
 
@@ -92,7 +92,7 @@ exports.default = series(
 exports.deploy = series(
 	clean_site,
 	copy_root,
-	copy_legacy_site
+	copy_site_legacy
 );
 
 /* Deploy */
@@ -106,7 +106,9 @@ exports.deploy_legacy = series(
 /* Single tasks */
 exports.weather = weather;
 exports.clean = clean_site;
-exports.legacy = copy_legacy_site;
+exports.clean_legacy = clean_site_legacy;
+exports.legacy = copy_site_legacy;
 exports.root = copy_root;
+exports.root_legacy = copy_root_legacy;
 
 
