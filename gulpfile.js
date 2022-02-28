@@ -58,12 +58,12 @@ function copy_root(cb) {
 
 function copy_root_legacy(cb) {
 	return src('root/_legacy/*')
-		.pipe(copy('_legacy', { prefix: 1 }));
+		.pipe(copy('_legacy', { prefix: 2 }));
 }
 
 function copy_site_legacy(cb) {
 	return src('src/_legacy/**/*')
-		.pipe(copy('_legacy', { prefix: 1 }));
+		.pipe(copy('_legacy', { prefix: 2 }));
 }
 
 function weather(cb) {
