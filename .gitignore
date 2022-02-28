@@ -1,3 +1,5 @@
 node_modules
 .npmrc
+_legacy
 _site
+_styleguide
