@@ -3,3 +3,4 @@ node_modules
 _legacy
 _site
 _styleguide
+!root/*
