@@ -1,10 +1,6 @@
 node_modules
-<<<<<<< HEAD
-.npmrc
-=======
 .npmrc
 _legacy
 _site
 _styleguide
 !root/*
->>>>>>> develop
