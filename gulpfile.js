@@ -31,10 +31,11 @@ https://gulpjs.com/
 /* Exported / Public tasks
 
 	'$ gulp' 					[Runs through all build steps, use it locally]
-	'$ gulp deploy'				[Deploys the legacy github.io site, use it on Main/www]
-	'$ gulp deploy_styleguide	[Cleanup and build a static styleguide]
+	'$ gulp css'				[Process Sass and CSS to files]
 	'$ gulp fractal_start 		[Start a local fractal web server with browser sync]
 	'$ gulp fractal_build 		[Build a static styleguide]
+	'$ gulp deploy'				[Deploys the legacy github.io site, use it on Main/www]
+	'$ gulp deploy_styleguide	[Cleanup and build a static styleguide]
 
 */
 
