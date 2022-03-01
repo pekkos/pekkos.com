@@ -32,8 +32,9 @@ https://gulpjs.com/
 
 	'$ gulp' 					[Runs through all build steps, use it locally]
 	'$ gulp deploy'				[Deploys the legacy github.io site, use it on Main/www]
-	'$ gulp deploy_styleguide	[Builds a static styleguide]
+	'$ gulp deploy_styleguide	[Cleanup and build a static styleguide]
 	'$ gulp fractal_start 		[Start a local fractal web server with browser sync]
+	'$ gulp fractal_build 		[Build a static styleguide]
 
 */
 
@@ -47,6 +48,9 @@ const gulp = require('gulp');
 const { src, dest, watch, series, parallel } = require('gulp');
 const exec = require('child_process').exec;
 const clean = require('gulp-clean');
+const sass = require('gulp-dart-sass');
+const sassGlob = require('gulp-sass-glob');
+
 
 /* Fetch required plugins */
 const copy = require('gulp-copy');
@@ -71,17 +75,17 @@ function clean_dest_styleguide(cb) {
 		.pipe(clean());
 }
 
-function copy_root(cb) {
+function copy_root() {
 	return src('root/*')
 		.pipe(copy('_site', { prefix: 1 }));
 }
 
-function copy_root_legacy(cb) {
+function copy_root_legacy() {
 	return src('root/_legacy/*')
 		.pipe(copy('_legacy', { prefix: 2 }));
 }
 
-function copy_site_legacy(cb) {
+function copy_site_legacy() {
 	return src('src/_legacy/**/*')
 		.pipe(copy('_legacy', { prefix: 2 }));
 }
@@ -93,6 +97,40 @@ function weather(cb) {
 		cb(err);
 	});
 }
+
+
+/* -----------------------------------------------------------------------------
+ * Gulp tasks
+ * -------------------------------------------------------------------------- */
+
+// Stylelint of Sass files
+// BEM lint of Sass files
+// Sass to css
+// PostCSS css files
+// Minify to css.min
+// copy css files
+
+/**
+ * Process Sass files to CSS
+ */
+
+function processSass() {
+	return gulp
+		.src([
+			'src/css/sass/*.scss'
+		])
+		.pipe(sassGlob())
+		.pipe(sass({
+			outputStyle: 'expanded'
+		})
+			.on('error', sass.logError))
+		.pipe(gulp.dest('src/css'))
+		.on('end', function () {
+			console.log('SCSS compiled to CSS.');
+		}
+	)
+}
+
 
 
 /* -----------------------------------------------------------------------------
@@ -213,6 +251,15 @@ exports.default = series(
 	weather
 );
 
+/* CSS */
+exports.css = series(
+	processSass
+);
+
+/* Fractal */
+exports.fractal_start = fractal_start;
+exports.fractal_build = fractal_build;
+
 
 /* Deploy */
 exports.deploy = series(
@@ -234,9 +281,6 @@ exports.deploy_styleguide = series(
 	fractal_build
 );
 
-/* Fractal */
-exports.fractal_start = fractal_start;
-exports.fractal_build = fractal_build;
 
 
 /* Single tasks */
@@ -251,5 +295,6 @@ exports.legacy = copy_site_legacy;
 exports.root = copy_root;
 exports.root_legacy = copy_root_legacy;
 exports.clean_dest_styleguide = clean_dest_styleguide;
+
 
 
