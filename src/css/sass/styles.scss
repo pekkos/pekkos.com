@@ -1,5 +1,92 @@
+@charset "UTF-8";
 
+
+/**
+ * STYLES
+ *
+ * [about this file]
+ *
+ *
+ * Table of Contents
+ *
+ * CONFIG
+ *
+ * DELEGATES
+ * All ..................... Delegates are tools and helpers and since they
+ *                           don't produce any CSS they can be glob imported.
+ *
+ * GLOBAL
+ * Box-sizing .............. Default 'box-sizing'
+ * Normalize ............... Levels out browser differences based on a
+ *                           browserslist config file
+ *
+ * HTML
+ *
+ * LAYOUT
+ *
+ * OBJECTS
+ *
+ * PATTERNS
+ * All ..................... Patterns should be componentized and un-independent
+ *                           from each other. Thus, it should be safe to glob
+ *                           import all patterns.
+ *
+ * UTILITIES
+ * Shame ................... The place to put hacks and quick fixes. Just make
+ *                           sure to refactor and distribute this shameful code
+ *                           to where it really should reside.
+ *
+ * WELLNESS
+ *
+ */
+
+ /*! No CSS before this comment! */
+
+/* CONFIG */
 @import "config/**/*.scss";
 
+/* DELEGATES */
+/* @import "delegates";
+
+/* PATTERNS */
 @import "../../fractal/patterns/**/*.scss";
 
+
+
+
+
+
+
+
+
+
+
+/* CONFIG */
+@import "config/**/*.scss";
+
+
+
+
+
+
+/* GLOBAL */
+
+@import "global/global.box-sizing";
+@import-normalize; /* Normalize inserted using PostCSS! */
+@import "global/global.reset";
+
+/* HTML */
+@import "html/**/*.scss";
+
+/* LAYOUT */
+
+/* OBJECTS */
+
+/* PATTERNS */
+@import "patterns/**/*.scss";
+
+/* UTILITIES */
+@import "utilities/**/*.scss";
+//@import "utilities/utilities.shame";
+
+/* WELLNESS */

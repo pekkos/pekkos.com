@@ -1,3 +1,12 @@
 $color: green;
 $buttoncolor: rebeccapurple;
 $white: white;
+
+
+/* stylelint-disable color-no-hex */
+
+html {
+	margin-top: 5px;
+	color: #000;
+}
+/* stylelint-enable color-no-hex */

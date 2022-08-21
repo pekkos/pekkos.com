@@ -48,13 +48,14 @@ https://gulpjs.com/
 const gulp = require('gulp');
 const { src, dest, watch, series, parallel } = require('gulp');
 const exec = require('child_process').exec;
-const clean = require('gulp-clean');
-const sass = require('gulp-dart-sass');
-const sassGlob = require('gulp-sass-glob');
-
 
 /* Fetch required plugins */
 const copy = require('gulp-copy');
+const clean = require('gulp-clean');
+const sassStylelint = require('gulp-stylelint');
+const sass = require('gulp-dart-sass');
+const sassGlob = require('gulp-sass-glob');
+
 
 
 /* -----------------------------------------------------------------------------
@@ -100,16 +101,73 @@ function weather(cb) {
 }
 
 
+
 /* -----------------------------------------------------------------------------
- * Gulp tasks
+ * CSS tasks
  * -------------------------------------------------------------------------- */
 
-// Stylelint of Sass files
-// BEM lint of Sass files
-// Sass to css
-// PostCSS css files
-// Minify to css.min
-// copy css files
+// [x] Stylelint of Sass files
+// [ ] BEM lint of Sass files
+// [x] Sass to css
+// [ ] PostCSS css files
+// [ ] Minify to css.min
+// [ ] copy css files
+// [ ] - styleguide css
+// [ ] - pattern variant css
+// [ ] - diagnostics css
+
+
+/**
+ * Lint Sass and report errors
+ * https://stylelint.io/
+ *
+ * Order declarations
+ * https://github.com/hudochenkov/stylelint-order
+ *
+ * Stylelint uses the rulesets defined in the .stylelintrc config file,
+ * and tries to fix errors and saves changes back to source files
+ */
+
+function stylelintSass() {
+	return gulp
+		.src([
+			'src/css/sass/**/*.scss',
+			'!src/css/sass/*.scss'
+		])
+		.pipe(sassStylelint({
+			failAfterError: true,
+			fix: true,
+			reporters: [
+				{ formatter: 'verbose', console: true }
+			]
+		}))
+		.pipe(gulp.dest('src/css/sass/')
+			.on('end', function () {
+				console.log('Linte and fixed Sass files with Stylelint');
+			})
+		);
+}
+
+function stylelintSassPatterns() {
+	return gulp
+		.src([
+			'src/fractal/patterns/**/*.scss'
+		])
+		.pipe(sassStylelint({
+			failAfterError: true,
+			fix: true,
+			reporters: [
+				{ formatter: 'verbose', console: true }
+			]
+		}))
+		.pipe(gulp.dest('src/fractal/patterns/')
+			.on('end', function () {
+				console.log('Linted and fixed Sass pattern files with Stylelint');
+			})
+		);
+}
+
+
 
 /**
  * Process Sass files to CSS
@@ -254,6 +312,8 @@ exports.default = series(
 
 /* CSS */
 exports.css = series(
+	stylelintSass,
+	stylelintSassPatterns,
 	processSass
 );
 

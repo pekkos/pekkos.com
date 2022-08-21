@@ -15,7 +15,11 @@
 		"gulp-clean": "^0.4.0",
 		"gulp-copy": "^4.0.1",
 		"gulp-dart-sass": "^1.0.2",
-		"gulp-sass-glob": "^1.1.0"
+		"gulp-sass-glob": "^1.1.0",
+		"gulp-stylelint": "^13.0.0",
+		"stylelint": "^14.5.3",
+		"stylelint-config-standard-scss": "^3.0.0",
+		"stylelint-order": "^5.0.0"
 	},
 	"dependencies": {
 		"@frctl/fractal": "^1.5.13"

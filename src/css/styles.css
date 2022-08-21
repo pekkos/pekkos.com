@@ -1,4 +1,16 @@
+/* stylelint-disable color-no-hex */
+html {
+  margin-top: 5px;
+  color: #000;
+}
+
+/* stylelint-enable color-no-hex */
 button {
-  background: rebeccapurple;
+  background-color: rebeccapurple;
   color: white;
+}
+
+body {
+  margin-top: 5px;
+  color: black;
 }
