@@ -4,3 +4,4 @@ _legacy
 _site
 _styleguide
 !root/*
+**/.DS_Store

@@ -1,0 +1,8 @@
+# Stylelint
+
+lint_scss:
+  - 'svgstore'
+
+
+
+# End of file :-)
