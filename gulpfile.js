@@ -27,16 +27,22 @@ https://gulpjs.com/
 
 "use strict";
 
-/* Exported / Public tasks
+/**
+ * Exported / Public tasks
+ *
+ *	'$ gulp css'				[Process Sass and CSS to files]
+ *	'$ gulp fractal_start 		[Start a local fractal web server with browser sync]
+ *	'$ gulp fractal_build 		[Build a static styleguide]
+ *	'$ gulp deploy_legacy'		[Deploys the legacy github.io site, use it on Main/www]
+ *	'$ gulp deploy_styleguide	[Builds and deploys a static styleguide]
+ */
 
-	'$ gulp' 					[Runs through all build steps, use it locally]
-	'$ gulp css'				[Process Sass and CSS to files]
-	'$ gulp fractal_start 		[Start a local fractal web server with browser sync]
-	'$ gulp fractal_build 		[Build a static styleguide]
-	'$ gulp deploy'				[Deploys the legacy github.io site, use it on Main/www]
-	'$ gulp deploy_styleguide	[Cleanup and build a static styleguide]
-
-*/
+/**
+ * Outside Gulp
+ *
+ *	'$ npm run 11ty_dev'		[Deploys the site in development environment]
+ *	'$ npm run 11ty_www'		[Deploys the site in production environment]
+ */
 
 /* -----------------------------------------------------------------------------
  * Gulp requirements and plugins
