@@ -115,17 +115,6 @@ function copy_site_assets(cb) {
 	);
 }
 
-function weather(cb) {
-	exec(
-		"curl -s http://wttr.in/Gothenburg | head -7",
-		function (err, stdout, stderr) {
-			console.log(stdout);
-			console.log(stderr);
-			cb(err);
-		}
-	);
-}
-
 /* -----------------------------------------------------------------------------
  * CSS tasks
  * -------------------------------------------------------------------------- */
