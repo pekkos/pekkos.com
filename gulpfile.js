@@ -58,6 +58,11 @@ const sassGlob = require("gulp-sass-glob");
  * Gulp tasks
  * -------------------------------------------------------------------------- */
 
+function defaultTask(cb) {
+	console.log("No default task defined");
+	cb();
+}
+
 /* Clean destination folders */
 
 function clean_site(cb) {
@@ -287,7 +292,7 @@ function fractal_build() {
  * -------------------------------------------------------------------------- */
 
 /* Default */
-exports.default = series(clean_dest_styleguide, fractal_build, weather);
+exports.default = defaultTask;
 
 /* CSS */
 // exports.css = series(stylelintSass, stylelintSassPatterns, processSass);
