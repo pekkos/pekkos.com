@@ -10,10 +10,6 @@
 	"resolutions": {
 		"glob-parent": "^6.0.2"
 	},
-	"overrides": {
-		"chokidar": "3.5.3",
-		"glob-parent": "6.0.2"
-	},
 	"devDependencies": {
 		"gulp": "^4.0.2",
 		"gulp-clean": "^0.4.0",
