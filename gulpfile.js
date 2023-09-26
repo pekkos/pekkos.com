@@ -50,13 +50,15 @@ const exec = require("child_process").exec;
 /* Fetch required plugins */
 const copy = require("gulp-copy");
 const clean = require("gulp-clean");
-const sassStylelint = require("gulp-stylelint");
+// const sassStylelint = require("gulp-stylelint");
 const sass = require("gulp-dart-sass");
 const sassGlob = require("gulp-sass-glob");
 
 /* -----------------------------------------------------------------------------
  * Gulp tasks
  * -------------------------------------------------------------------------- */
+
+/* Clean destination folders */
 
 function clean_site(cb) {
 	return src("_site/*", { read: false }).pipe(clean());
@@ -70,13 +72,25 @@ function clean_dest_styleguide(cb) {
 	return src("_styleguide/*", { read: false }).pipe(clean());
 }
 
-function copy_root() {
-	return src("root/*").pipe(copy("_site", { prefix: 1 }));
-}
+/* Copy common root files */
 
 function copy_root_legacy() {
 	return src("root/_legacy/*").pipe(copy("_site_legacy", { prefix: 2 }));
 }
+
+function copy_root_common() {
+	return src("root/common/*").pipe(copy("_site", { prefix: 2 }));
+}
+
+function copy_root_dev() {
+	return src("root/dev/*").pipe(copy("_site", { prefix: 2 }));
+}
+
+function copy_root_www() {
+	return src("root/www/*").pipe(copy("_site", { prefix: 2 }));
+}
+
+/* Copy site */
 
 function copy_site_legacy() {
 	return src("src/_legacy/**/*").pipe(copy("_site_legacy", { prefix: 2 }));
@@ -276,14 +290,14 @@ function fractal_build() {
 exports.default = series(clean_dest_styleguide, fractal_build, weather);
 
 /* CSS */
-exports.css = series(stylelintSass, stylelintSassPatterns, processSass);
+// exports.css = series(stylelintSass, stylelintSassPatterns, processSass);
 
 /* Fractal */
 exports.fractal_start = fractal_start;
 exports.fractal_build = fractal_build;
 
 /* Deploy */
-exports.deploy = series(clean_site, copy_root, copy_site_legacy);
+exports.deploy = series(clean_site, copy_root_common, copy_site_legacy);
 
 /* Deploy Legacy */
 exports.deploy_legacy = series(
@@ -303,7 +317,7 @@ exports.weather = weather;
 
 exports.clean = clean_site;
 exports.clean_legacy = clean_site_legacy;
-exports.legacy = copy_site_legacy;
-exports.root = copy_root;
-exports.root_legacy = copy_root_legacy;
 exports.clean_dest_styleguide = clean_dest_styleguide;
+exports.root_common = copy_root_common;
+exports.root_legacy = copy_root_legacy;
+exports.site_legacy = copy_site_legacy;
