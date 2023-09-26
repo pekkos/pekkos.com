@@ -294,6 +294,13 @@ function fractal_build() {
 /* Default */
 exports.default = defaultTask;
 
+/* Deploy Legacy Site */
+exports.deploy_legacy = series(
+	clean_site_legacy,
+	copy_root_legacy,
+	copy_site_legacy
+);
+
 /* CSS */
 // exports.css = series(stylelintSass, stylelintSassPatterns, processSass);
 
@@ -303,13 +310,6 @@ exports.fractal_build = fractal_build;
 
 /* Deploy */
 exports.deploy = series(clean_site, copy_root_common, copy_site_legacy);
-
-/* Deploy Legacy */
-exports.deploy_legacy = series(
-	clean_site_legacy,
-	copy_root_legacy,
-	copy_site_legacy
-);
 
 /* Deploy Styleguide */
 exports.deploy_styleguide = series(clean_dest_styleguide, fractal_build);
