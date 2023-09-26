@@ -222,7 +222,7 @@ fractal.components.set("title", "Patterns");
 fractal.docs.set("path", __dirname + "/src/fractal/docs");
 
 /* Specify a directory of static assets */
-fractal.web.set("static.path", __dirname + "/src/fractal/static");
+fractal.web.set("static.path", __dirname + "/src/_/static");
 
 /* Set the static HTML build destination */
 fractal.web.set("builder.dest", __dirname + "/_styleguide");
@@ -282,7 +282,7 @@ function fractal_build() {
 		logger.update(`Exported ${completed} of ${total} items`, "info")
 	);
 	builder.on("error", (err) => logger.error(err.message));
-	return builder.build().then(() => {
+	return builder.start().then(() => {
 		logger.success("Fractal build completed!");
 	});
 }
