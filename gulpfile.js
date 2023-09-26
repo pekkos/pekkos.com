@@ -321,8 +321,5 @@ exports.weather = weather;
 /* Single tasks for testing */
 
 exports.clean = clean_site;
-exports.clean_legacy = clean_site_legacy;
 exports.clean_dest_styleguide = clean_dest_styleguide;
 exports.root_common = copy_root_common;
-exports.root_legacy = copy_root_legacy;
-exports.site_legacy = copy_site_legacy;
