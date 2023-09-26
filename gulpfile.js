@@ -301,6 +301,9 @@ exports.deploy_legacy = series(
 	copy_site_legacy
 );
 
+/* Eleventy pre pipeline */
+exports.pre_11ty = series(clean_site);
+
 /* CSS */
 // exports.css = series(stylelintSass, stylelintSassPatterns, processSass);
 
