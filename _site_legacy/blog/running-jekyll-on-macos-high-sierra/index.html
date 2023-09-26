@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="description" content="Findings, trials and errors in Web Design and Development. Noted down by Jonas Päckos." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Running Jekyll on MacOS High Sierra | by Jonas Päckos</title>
+
+  <link rel="canonical" href="https://www.pekkos.com/" />
+  <link rel="author" href="humans.txt" />
+
+  <link rel="stylesheet" href="/assets/css/styles.min.css" />
+
+
+</head>
+
+<!--               _                                                                     _           _             __
+ _   _  ___  _   _( )_ __ ___      __ ___      _____  ___  ___  _ __ ___   ___        __| |_   _  __| | ___     _  \ \
+| | | |/ _ \| | | |/| '__/ _ \    / _` \ \ /\ / / _ \/ __|/ _ \| '_ ` _ \ / _ \      / _` | | | |/ _` |/ _ \   (_)  | |
+| |_| | (_) | |_| | | | |  __/   | (_| |\ V  V /  __/\__ \ (_) | | | | | |  __/_    | (_| | |_| | (_| |  __/    _   | |
+ \__, |\___/ \__,_| |_|  \___|    \__,_| \_/\_/ \___||___/\___/|_| |_| |_|\___( )    \__,_|\__,_|\__,_|\___|   (_)  | |
+ |___/                                                                        |/                                   /_/
+
+-->
+
+
+<body>
+
+  <header role="banner">
+
+<h1><a href="/">P E K K O S.</a></h1>
+
+</header>
+
+
+  <main role="main">
+
+
+<article class="container h-entry">
+    <h1 class="spacing p-name">Running Jekyll on MacOS High Sierra</h1>
+
+    <div class="meta_wrapper">
+        <span>
+            <!-- page.category (removed temporarily?) -->
+            <time class="dt-published" datetime="2018-04-16">April 16, 2018</time>
+        </span><h5>tags:</h5><ul class="tag_list_in_post"><li class="inline tag_list_item">
+                <a class="tag_list_link" href="/tag/jekyll">jekyll</a>
+            </li></ul>
+    </div>
+
+    <div class="blog-post spacing e-content">
+        <p>So it was time to show my blog a little affection – you know, a little housekeeping involving updating development dependencies and other stuff like checking that build commands still run as expected.</p>
+<p>Which they didn't. Well, for the most part they did, but Jekyll refused to play nice with me. I got this system message telling me Ruby wasn't really playing the game:</p>
+<pre class="language-js"><code class="language-js"><span class="highlight-line"><span class="token operator">/</span>System<span class="token operator">/</span>Library<span class="token operator">/</span>Frameworks<span class="token operator">/</span>Ruby<span class="token punctuation">.</span>framework<span class="token operator">/</span>Versions<span class="token operator">/</span><span class="token number">2.0</span><span class="token operator">/</span>usr<span class="token operator">/</span></span><br><span class="highlight-line">bin<span class="token operator">/</span>ruby<span class="token punctuation">:</span> bad interpreter<span class="token punctuation">:</span> No such file or directory</span></code></pre>
+<p>A quick search resulted in posts like <a href="https://github.com/jekyll/jekyll/issues/6637">this</a>, and after trying some ruby magic I stumbled on <a href="https://github.com/sparklemotion/nokogiri">Nokigiri</a> which refused to play at all, and so I ended up on <a href="https://stackoverflow.com/questions/46866828/ruby-nokogiri-gem-install-mac-osx-high-sierra">this post</a>.</p>
+<p>I had no luck with all those tricks, and I can't say I understand everything that's going on under the hood of the Terminal. But what I did
+understand from my research was that when I updated MacOS to High Sierra, the Ruby version was also updated to version 2.3, but Jekyll still tried to reference Ruby version 2.0.</p>
+<p>So eventually, I found <a href="https://stackoverflow.com/questions/46541019/jekyll-with-ruby-2-3-on-macos-10-13-highsierra/46742979#46742979">this post on Stack Overflow</a>, where a comment offered the simplest of solutions.</p>
+<p>Uninstall Jekyll, and install it again. That easy, huh?</p>
+<pre class="language-js"><code class="language-js"><span class="highlight-line">gem uninstall Jekyll</span><br><span class="highlight-line">gem install Jekyll</span></code></pre>
+<p>Yeah, that easy. It worked, problem solved. Move on.</p>
+
+    </div>If you liked this post, you can
+<a href="https://twitter.com/intent/tweet?url=http://www.pekkos.com/blog/running-jekyll-on-macos-high-sierra/&text=Running Jekyll on MacOS High Sierra&via=pekkos" target="_blank">
+  share it with your followers</a>
+or
+<a href="https://twitter.com/pekkos">
+  follow me on Twitter</a>!
+
+
+
+
+</article>
+
+  </main>
+
+
+<footer role="contentinfo">
+  <hr>
+  <p>Handcrafted by <a rel="me" href="http://about.me/pekkos">Jonas Päckos</a>, &copy; 2016-2019. <a href="https://github.com/pekkos/pekkos.com">View source</a>.</p>
+  <p>Talk to me on <a rel="me" href="https://twitter.com/pekkos">twitter</a> or <a rel="me" href="https://github.com/pekkos">GitHub</a></p>
+</footer>
+
+
+
+  <!-- Third party scripts starts here -->
+
+<!-- Google Analytics - Stats collection -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-30823001-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<!-- Mouse Flow - User behavior tracking -->
+<script type="text/javascript">
+  var _mfq = _mfq || [];
+  (function () {
+  var mf = document.createElement("script"); mf.type = "text/javascript"; mf.async = true;
+  mf.src = "//cdn.mouseflow.com/projects/41864479-8955-4644-9eb6-3eaee936cff1.js";
+  document.getElementsByTagName("head")[0].appendChild(mf);
+  })();
+</script>
+
+
+<!-- End of third party scripts -->
+
+
+
+
+</body>
+
+</html>
