@@ -60,7 +60,11 @@ const size = require("gulp-size");
 /* Fetch required plugins */
 const sass = require("gulp-dart-sass");
 const sassGlob = require("gulp-sass-glob");
+const postcss = require("gulp-postcss");
 const cleanCSS = require("gulp-clean-css");
+
+/* Fetch PostCSS plugins */
+const postcssNormalize = require("postcss-normalize");
 
 /* -----------------------------------------------------------------------------
  * Gulp tasks
@@ -199,7 +203,29 @@ function processSass() {
 			})
 		)
 		.on("end", function () {
-			console.log("Sass processed to CSS.");
+			console.log("Sass pre-processed to CSS.");
+		});
+}
+
+/**
+ * Import Normalize based on Browserslist using PostCSS
+ */
+
+function postCSSnormalize(cb) {
+	const plugins = [postcssNormalize()];
+
+	return gulp
+		.src(["src/css/*.css", "!src/css/*.min.css"])
+		.pipe(postcss(plugins))
+		.pipe(gulp.dest("src/css"))
+		.pipe(
+			size({
+				title: "Inject Normalize to",
+				showFiles: true,
+			})
+		)
+		.on("end", function () {
+			console.log("Normalized injected using PostCSS and Browserslist.");
 		});
 }
 
@@ -339,7 +365,7 @@ exports.default = defaultTask;
  * CSS
  */
 
-exports.css = series(processSass, copy_css_assets);
+exports.css = series(processSass, postCSSnormalize);
 
 /**
  * Deploy Legacy Site
@@ -383,6 +409,7 @@ exports.deploy_styleguide = series(clean_dest_styleguide, fractal_build);
 
 /* Verified */
 exports.css_sass = processSass;
+exports.css_norm = postCSSnormalize;
 
 exports.css_min = minifyCSS;
 exports.css_assets = copy_css_assets;
