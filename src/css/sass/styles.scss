@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 /**
  * STYLES
  *
@@ -9,22 +8,21 @@
  *
  * Table of Contents
  *
+ * BASE
+ * All ..................... The Base layer consists of tools and helpers and
+ *                           since they don't produce any CSS they can be glob
+ *                           imported.
+ *
  * CONFIG
  *
- * DELEGATES
- * All ..................... Delegates are tools and helpers and since they
- *                           don't produce any CSS they can be glob imported.
  *
- * GLOBAL
- * Box-sizing .............. Default 'box-sizing'
+ * ELEMENTS
  * Normalize ............... Levels out browser differences based on a
  *                           browserslist config file
+ * Box-sizing .............. Default 'box-sizing'
  *
- * HTML
  *
  * LAYOUT
- *
- * OBJECTS
  *
  * PATTERNS
  * All ..................... Patterns should be componentized and un-independent
@@ -40,53 +38,49 @@
  *
  */
 
- /*! No CSS before this comment! */
 
-/* CONFIG */
+/**
+ * BASE
+ */
+
+// @import "base/**/*.scss";
+
+
+/*! No CSS before this comment! */
+
+
+/**
+ * CONFIG
+ */
+
 @import "config/**/*.scss";
 
-/* DELEGATES */
-/* @import "delegates";
 
-/* PATTERNS */
+/**
+ * ELEMENTS
+ */
+
+// @import "elements/elements.normalize.scss";
+// @import "elements/elements.box-sizing.scss";
+
+
+/**
+ * LAYOUT
+ */
+
+
+/**
+ * PATTERNS
+ */
+
 @import "../../fractal/patterns/**/*.scss";
 
 
+/**
+ * SHAME
+ */
 
 
-
-
-
-
-
-
-
-/* CONFIG */
-@import "config/**/*.scss";
-
-
-
-
-
-
-/* GLOBAL */
-
-@import "global/global.box-sizing";
-@import-normalize; /* Normalize inserted using PostCSS! */
-@import "global/global.reset";
-
-/* HTML */
-@import "html/**/*.scss";
-
-/* LAYOUT */
-
-/* OBJECTS */
-
-/* PATTERNS */
-@import "patterns/**/*.scss";
-
-/* UTILITIES */
-@import "utilities/**/*.scss";
-//@import "utilities/utilities.shame";
-
-/* WELLNESS */
+/**
+ * UTILITIES
+ */

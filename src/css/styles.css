@@ -1,3 +1,47 @@
+/**
+ * STYLES
+ *
+ * [about this file]
+ *
+ *
+ * Table of Contents
+ *
+ * BASE
+ * All ..................... The Base layer consists of tools and helpers and
+ *                           since they don't produce any CSS they can be glob
+ *                           imported.
+ *
+ * CONFIG
+ *
+ *
+ * ELEMENTS
+ * Normalize ............... Levels out browser differences based on a
+ *                           browserslist config file
+ * Box-sizing .............. Default 'box-sizing'
+ *
+ *
+ * LAYOUT
+ *
+ * PATTERNS
+ * All ..................... Patterns should be componentized and un-independent
+ *                           from each other. Thus, it should be safe to glob
+ *                           import all patterns.
+ *
+ * UTILITIES
+ * Shame ................... The place to put hacks and quick fixes. Just make
+ *                           sure to refactor and distribute this shameful code
+ *                           to where it really should reside.
+ *
+ * WELLNESS
+ *
+ */
+/**
+ * BASE
+ */
+/*! No CSS before this comment! */
+/**
+ * CONFIG
+ */
 /* stylelint-disable color-no-hex */
 html {
   margin-top: 5px;
@@ -5,6 +49,15 @@ html {
 }
 
 /* stylelint-enable color-no-hex */
+/**
+ * ELEMENTS
+ */
+/**
+ * LAYOUT
+ */
+/**
+ * PATTERNS
+ */
 button {
   background-color: rebeccapurple;
   color: white;
@@ -14,3 +67,14 @@ body {
   margin-top: 5px;
   color: black;
 }
+
+h1 {
+  color: maroon;
+}
+
+/**
+ * SHAME
+ */
+/**
+ * UTILITIES
+ */

@@ -54,11 +54,14 @@ const { src, dest, watch, series, parallel } = require("gulp");
 const exec = require("child_process").exec;
 
 /* Fetch required plugins */
-const copy = require("gulp-copy");
 const clean = require("gulp-clean");
+const cleanCSS = require("gulp-clean-css");
+const copy = require("gulp-copy");
 // const sassStylelint = require("gulp-stylelint");
 const sass = require("gulp-dart-sass");
+const rename = require("gulp-rename");
 const sassGlob = require("gulp-sass-glob");
+const size = require("gulp-size");
 
 /* -----------------------------------------------------------------------------
  * Gulp tasks
@@ -190,9 +193,45 @@ function processSass() {
 			}).on("error", sass.logError)
 		)
 		.pipe(gulp.dest("src/css"))
+		.pipe(
+			size({
+				title: "Processed Sass to",
+				showFiles: true,
+			})
+		)
 		.on("end", function () {
-			console.log("SCSS compiled to CSS.");
+			console.log("Sass processed to CSS.");
 		});
+}
+
+/* Minify processed CSS */
+
+function minifyCSS(cb) {
+	return (
+		gulp
+			.src(["src/css/*.css", "!src/css/*.min.css"])
+			//		.pipe(cleanCSS())
+			.pipe(rename({ suffix: ".min" }))
+			.pipe(
+				gulp
+					.dest("src/css/pro")
+					.pipe(
+						size({
+							title: "Minified",
+							showFiles: true,
+						})
+					)
+					.on("end", function () {
+						console.log("CSS files minified.");
+					})
+			)
+	);
+}
+
+function copy_css_assets() {
+	return src(["src/css/*.css", "src/css/*.min.css"]).pipe(
+		copy("src/_static/assets/css", { prefix: 2 })
+	);
 }
 
 /* -----------------------------------------------------------------------------
@@ -298,6 +337,12 @@ function fractal_build() {
 exports.default = defaultTask;
 
 /**
+ * CSS
+ */
+
+exports.css = series(processSass, copy_css_assets);
+
+/**
  * Deploy Legacy Site
  */
 
@@ -336,3 +381,9 @@ exports.deploy_styleguide = series(clean_dest_styleguide, fractal_build);
 
 /* Single tasks */
 // exports.clean = clean_site;
+
+/* Verified */
+exports.css_sass = processSass;
+
+exports.css_min = minifyCSS;
+exports.css_assets = copy_css_assets;
