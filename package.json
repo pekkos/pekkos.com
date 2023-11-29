@@ -12,12 +12,6 @@
 	"resolutions": {
 		"glob-parent": "^6.0.2"
 	},
-	"postcss": {
-		"map": false,
-		"plugins": {
-			"postcss-plugin": {}
-		}
-	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.16",
 		"gulp": "^4.0.2",
