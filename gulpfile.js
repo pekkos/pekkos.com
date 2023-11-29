@@ -229,29 +229,45 @@ function postCSSnormalize(cb) {
 		});
 }
 
-/* Minify processed CSS */
+/**
+ * Minify processed CSS
+ */
 
 function minifyCSS(cb) {
-	return (
-		gulp
-			.src(["src/css/*.css", "!src/css/*.min.css"])
-			//		.pipe(cleanCSS())
-			.pipe(rename({ suffix: ".min" }))
-			.pipe(
-				gulp
-					.dest("src/css/pro")
-					.pipe(
-						size({
-							title: "Minified",
-							showFiles: true,
-						})
-					)
-					.on("end", function () {
-						console.log("CSS files minified.");
-					})
-			)
-	);
+	return gulp
+		.src(["src/css/*.css", "!src/css/*.min.css"])
+		.pipe(
+			cleanCSS({ debug: true }, (details) => {
+				console.log(
+					`${details.name} minified from ${details.stats.originalSize} to ${details.stats.minifiedSize}`
+				);
+			})
+		)
+		.pipe(rename({ suffix: ".min" }))
+		.pipe(gulp.dest("src/css"));
 }
+
+// function minifyCSS(cb) {
+// 	return (
+// 		gulp
+// 			.src(["src/css/*.css", "!src/css/*.min.css"])
+// 			//		.pipe(cleanCSS())
+// 			.pipe(rename({ suffix: ".min" }))
+// 			.pipe(
+// 				gulp
+// 					.dest("src/css/pro")
+// 					.pipe(
+// 						size({
+// 							title: "Minified",
+// 							showFiles: true,
+// 						})
+// 					)
+// 					.on("end", function () {
+// 						console.log("CSS files minified.");
+// 					})
+// 			)
+// 	);
+// }
 
 function copy_css_assets() {
 	return src(["src/css/*.css", "src/css/*.min.css"]).pipe(
@@ -416,6 +432,6 @@ exports.deploy_styleguide = series(clean_dest_styleguide, fractal_build);
 /* Verified */
 exports.css_sass = processSass;
 exports.css_norm = postCSSnormalize;
-
 exports.css_min = minifyCSS;
+
 exports.css_assets = copy_css_assets;
