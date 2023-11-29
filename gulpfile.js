@@ -65,6 +65,9 @@ const cleanCSS = require("gulp-clean-css");
 
 /* Fetch PostCSS plugins */
 const postcssNormalize = require("postcss-normalize");
+//  Autoprefixer - base on .browserslistrc
+// https://github.com/postcss/autoprefixer
+const autoprefixer = require("autoprefixer");
 
 /* -----------------------------------------------------------------------------
  * Gulp tasks
@@ -125,12 +128,12 @@ function copy_site_assets(cb) {
  * CSS tasks
  * -------------------------------------------------------------------------- */
 
-// [x] Stylelint of Sass files
+// [ ] Stylelint of Sass files
 // [ ] BEM lint of Sass files
 // [x] Sass to css
 // [ ] PostCSS css files
-// [ ] Minify to css.min
-// [ ] copy css files
+// [x] Minify to css.min
+// [x] copy css files to static
 // [ ] - styleguide css
 // [ ] - pattern variant css
 // [ ] - diagnostics css
@@ -226,6 +229,30 @@ function postCSSnormalize(cb) {
 		)
 		.on("end", function () {
 			console.log("Normalized injected using PostCSS and Browserslist.");
+		});
+}
+
+/**
+ * Inject vendor prefixes based on Browserslist uring PostCSS
+ */
+
+function postCSSautoprefixer(cb) {
+	const plugins = [autoprefixer()];
+
+	return gulp
+		.src(["src/css/*.css", "!src/css/*.min.css"])
+		.pipe(postcss(plugins))
+		.pipe(gulp.dest("src/css"))
+		.pipe(
+			size({
+				title: "Inject vendor prefixer to",
+				showFiles: true,
+			})
+		)
+		.on("end", function () {
+			console.log(
+				"Vendor prefixes auto injected using PostCSS and Browserslist."
+			);
 		});
 }
 
@@ -397,6 +424,7 @@ exports.default = defaultTask;
 exports.css = series(
 	processSass,
 	postCSSnormalize,
+	postCSSautoprefixer,
 	minifyCSS,
 	copyCssAssets
 	// postcss plus
@@ -448,3 +476,4 @@ exports.css_sass = processSass;
 exports.css_norm = postCSSnormalize;
 exports.css_min = minifyCSS;
 exports.css_assets = copyCssAssets;
+exports.css_prefix = postCSSautoprefixer;
