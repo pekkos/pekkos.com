@@ -269,7 +269,11 @@ function minifyCSS(cb) {
 // 	);
 // }
 
-function copy_css_assets() {
+/**
+ * Copy post-processed and minified CSS to static assets folder
+ */
+
+function copyCssAssets() {
 	return src(["src/css/*.css", "src/css/*.min.css"]).pipe(
 		copy("src/_static/assets/css", { prefix: 2 })
 	);
@@ -384,7 +388,8 @@ exports.default = defaultTask;
 exports.css = series(
 	processSass,
 	postCSSnormalize,
-	minifyCSS
+	minifyCSS,
+	copyCssAssets
 	// postcss plus
 	// postcss minus
 );
@@ -433,5 +438,4 @@ exports.deploy_styleguide = series(clean_dest_styleguide, fractal_build);
 exports.css_sass = processSass;
 exports.css_norm = postCSSnormalize;
 exports.css_min = minifyCSS;
-
-exports.css_assets = copy_css_assets;
+exports.css_assets = copyCssAssets;
