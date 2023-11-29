@@ -274,11 +274,20 @@ function minifyCSS(cb) {
  */
 
 function copyCssAssets() {
-	return src(["src/css/*.css", "src/css/*.min.css"]).pipe(
-		copy("src/_static/assets/css", { prefix: 2 })
-	);
+	return src(["src/css/*.css", "src/css/*.min.css"])
+		.pipe(copy("src/_static/assets/css", { prefix: 2 }))
+		.pipe(
+			size({
+				title: "Copy processed CSS file:",
+				showFiles: true,
+			})
+		)
+		.on("end", function () {
+			console.log(
+				"Post-processed CSS files copied to the static assets folder"
+			);
+		});
 }
-
 /* -----------------------------------------------------------------------------
  * Fractal configuration and tasks
  *
