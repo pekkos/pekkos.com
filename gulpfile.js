@@ -383,10 +383,10 @@ exports.default = defaultTask;
 
 exports.css = series(
 	processSass,
-	postCSSnormalize
+	postCSSnormalize,
+	minifyCSS
 	// postcss plus
 	// postcss minus
-	// css minify
 );
 
 /**
