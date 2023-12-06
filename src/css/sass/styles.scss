@@ -38,48 +38,39 @@
  *
  */
 
-
 /**
  * BASE
  */
 
-// @import "base/**/*.scss";
-
+@import "base/**/*";
 
 /*! No CSS before this comment! */
-
 
 /**
  * CONFIG
  */
 
-@import "config/**/*.scss";
-
+@import "config/**/*";
 
 /**
  * ELEMENTS
  */
 
-@import "elements/elements.normalize.scss";
-// @import "elements/elements.box-sizing.scss";
-
+@import "elements/elements.normalize";
 
 /**
  * LAYOUT
  */
 
-
 /**
  * PATTERNS
  */
 
-@import "../../fractal/patterns/**/*.scss";
-
+@import "../../fractal/patterns/**/*";
 
 /**
  * SHAME
  */
-
 
 /**
  * UTILITIES
