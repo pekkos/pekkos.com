@@ -278,14 +278,14 @@ html {
  * PATTERNS
  */
 button {
-  color: white;
   background-color: rebeccapurple;
+  color: white;
 }
 
 body {
-  font-weight: bold;
   margin-top: 5px;
   color: black;
+  font-weight: bold;
 }
 
 h1 {
