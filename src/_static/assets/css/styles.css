@@ -74,8 +74,10 @@ html {
  */
 :where(h1) {
   font-size: 2em;
-  margin-block-end: 0.67em;
-  margin-block-start: 0.67em;
+  -webkit-margin-after: 0.67em;
+          margin-block-end: 0.67em;
+  -webkit-margin-before: 0.67em;
+          margin-block-start: 0.67em;
 }
 /* Grouping content
  * ========================================================================== */
@@ -83,15 +85,18 @@ html {
  * Remove the margin on nested lists in Chrome, Edge, and Safari.
  */
 :where(dl, ol, ul) :where(dl, ol, ul) {
-  margin-block-end: 0;
-  margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
 }
 /**
  * 1. Add the correct box sizing in Firefox.
  * 2. Correct the inheritance of border color in Firefox.
  */
 :where(hr) {
-  box-sizing: content-box; /* 1 */
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box; /* 1 */
   color: inherit; /* 2 */
   height: 0; /* 1 */
 }
@@ -110,7 +115,8 @@ html {
  */
 :where(abbr[title]) {
   text-decoration: underline;
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
 }
 /**
  * Add the correct font weight in Chrome, Edge, and Safari.
@@ -245,6 +251,7 @@ html {
   border: solid;
   color: black;
   height: -moz-fit-content;
+  height: -webkit-fit-content;
   height: fit-content;
   left: 0;
   margin: auto;
@@ -252,6 +259,7 @@ html {
   position: absolute;
   right: 0;
   width: -moz-fit-content;
+  width: -webkit-fit-content;
   width: fit-content;
 }
 :where(dialog:not([open])) {
@@ -270,11 +278,12 @@ html {
  * PATTERNS
  */
 button {
-  background-color: rebeccapurple;
   color: white;
+  background-color: rebeccapurple;
 }
 
 body {
+  font-weight: bold;
   margin-top: 5px;
   color: black;
 }

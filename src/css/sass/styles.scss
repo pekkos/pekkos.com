@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
 /**
  * STYLES
@@ -42,7 +42,7 @@
  * BASE
  */
 
-@import "base/**/*";
+@import 'base/**/*';
 
 /*! No CSS before this comment! */
 
@@ -50,13 +50,13 @@
  * CONFIG
  */
 
-@import "config/**/*";
+@import 'config/**/*';
 
 /**
  * ELEMENTS
  */
 
-@import "elements/elements.normalize";
+@import 'elements/elements.normalize';
 
 /**
  * LAYOUT
@@ -66,7 +66,7 @@
  * PATTERNS
  */
 
-@import "../../fractal/patterns/**/*";
+@import '../../fractal/patterns/**/*';
 
 /**
  * SHAME
