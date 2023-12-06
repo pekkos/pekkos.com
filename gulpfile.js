@@ -186,7 +186,7 @@ function stylelintSassPatterns() {
 }
 
 /**
- * Process Sass files to CSS
+ * Pre-process Sass files to CSS
  */
 
 function processSass() {
@@ -273,28 +273,6 @@ function minifyCSS(cb) {
 		.pipe(rename({ suffix: ".min" }))
 		.pipe(gulp.dest("src/css"));
 }
-
-// function minifyCSS(cb) {
-// 	return (
-// 		gulp
-// 			.src(["src/css/*.css", "!src/css/*.min.css"])
-// 			//		.pipe(cleanCSS())
-// 			.pipe(rename({ suffix: ".min" }))
-// 			.pipe(
-// 				gulp
-// 					.dest("src/css/pro")
-// 					.pipe(
-// 						size({
-// 							title: "Minified",
-// 							showFiles: true,
-// 						})
-// 					)
-// 					.on("end", function () {
-// 						console.log("CSS files minified.");
-// 					})
-// 			)
-// 	);
-// }
 
 /**
  * Copy post-processed and minified CSS to static assets folder
